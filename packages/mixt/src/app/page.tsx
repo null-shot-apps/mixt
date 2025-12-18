@@ -41,6 +41,7 @@ export default function IngredientMixer() {
     // Simulate AI analysis
     setTimeout(() => {
       const ingredientList = ingredients.toLowerCase();
+      const products: Array<{name: string; image: string; recipe: string[]; category: string;}> = [];
       
       // Check for dangerous combinations
       const hasBleach = ingredientList.includes('bleach');
@@ -55,76 +56,458 @@ export default function IngredientMixer() {
           warnings: ['⚠️ DANGEROUS COMBINATION! Never mix bleach with ammonia or vinegar - produces toxic gas!'],
           corrections: ['Remove bleach from the mix', 'Use safer cleaning alternatives separately']
         });
-      } else if (ingredientList.includes('flour') && ingredientList.includes('sugar')) {
-        // Good baking ingredients
-        setResult({
-          isSafe: true,
-          products: [
-            {
-              name: 'Chocolate Chip Cookies',
-              image: '🍪',
-              category: 'Dessert',
-              recipe: [
-                'Preheat oven to 375°F (190°C)',
-                'Mix butter and sugars until creamy',
-                'Beat in eggs and vanilla',
-                'Combine flour, baking soda, and salt',
-                'Stir in chocolate chips',
-                'Bake for 9-11 minutes'
-              ]
-            },
-            {
-              name: 'Vanilla Cake',
-              image: '🎂',
-              category: 'Dessert',
-              recipe: [
-                'Preheat oven to 350°F (175°C)',
-                'Cream butter and sugar',
-                'Add eggs one at a time',
-                'Mix in vanilla extract',
-                'Alternate adding flour and milk',
-                'Bake for 30-35 minutes'
-              ]
-            }
+        setAnalyzing(false);
+        return;
+      }
+      
+      // BAKING & DESSERTS
+      if (ingredientList.includes('flour') && ingredientList.includes('sugar')) {
+        products.push({
+          name: 'Chocolate Chip Cookies',
+          image: '🍪',
+          category: 'Dessert',
+          recipe: [
+            'Preheat oven to 375°F (190°C)',
+            'Mix butter and sugars until creamy',
+            'Beat in eggs and vanilla',
+            'Combine flour, baking soda, and salt',
+            'Stir in chocolate chips',
+            'Bake for 9-11 minutes'
           ]
         });
-      } else if (ingredientList.includes('tomato') || ingredientList.includes('cheese')) {
-        setResult({
-          isSafe: true,
-          products: [
-            {
-              name: 'Pizza',
-              image: '🍕',
-              category: 'Main Course',
-              recipe: [
-                'Prepare pizza dough and let rise',
-                'Roll out dough into circle',
-                'Spread tomato sauce',
-                'Add mozzarella cheese',
-                'Add your favorite toppings',
-                'Bake at 475°F for 12-15 minutes'
-              ]
-            }
-          ]
-        });
-      } else {
-        setResult({
-          isSafe: true,
-          products: [
-            {
-              name: 'Custom Mix',
-              image: '🥘',
-              category: 'Experimental',
-              recipe: [
-                'Combine your ingredients',
-                'Mix well',
-                'Cook according to ingredient requirements',
-                'Season to taste'
-              ]
-            }
+        
+        if (ingredientList.includes('egg')) {
+          products.push({
+            name: 'Vanilla Cake',
+            image: '🎂',
+            category: 'Dessert',
+            recipe: [
+              'Preheat oven to 350°F (175°C)',
+              'Cream butter and sugar',
+              'Add eggs one at a time',
+              'Mix in vanilla extract',
+              'Alternate adding flour and milk',
+              'Bake for 30-35 minutes'
+            ]
+          });
+        }
+        
+        products.push({
+          name: 'Biscuits',
+          image: '🥐',
+          category: 'Baked Goods',
+          recipe: [
+            'Mix flour, baking powder, and salt',
+            'Cut in cold butter until crumbly',
+            'Add milk and stir until just combined',
+            'Roll out and cut into rounds',
+            'Bake at 450°F for 12-15 minutes'
           ]
         });
       }
+      
+      // ICE CREAM & FROZEN TREATS
+      if ((ingredientList.includes('cream') || ingredientList.includes('milk')) && ingredientList.includes('sugar')) {
+        products.push({
+          name: 'Vanilla Ice Cream',
+          image: '🍦',
+          category: 'Frozen Dessert',
+          recipe: [
+            'Heat milk and cream until warm',
+            'Whisk egg yolks with sugar',
+            'Temper eggs with warm milk mixture',
+            'Cook until thickened',
+            'Add vanilla extract and chill',
+            'Churn in ice cream maker for 20-25 minutes'
+          ]
+        });
+      }
+      
+      // PIZZA & ITALIAN
+      if (ingredientList.includes('tomato') && ingredientList.includes('cheese')) {
+        products.push({
+          name: 'Margherita Pizza',
+          image: '🍕',
+          category: 'Main Course',
+          recipe: [
+            'Prepare pizza dough and let rise',
+            'Roll out dough into circle',
+            'Spread tomato sauce',
+            'Add fresh mozzarella cheese',
+            'Top with basil leaves',
+            'Bake at 475°F for 12-15 minutes'
+          ]
+        });
+        
+        products.push({
+          name: 'Pasta Marinara',
+          image: '🍝',
+          category: 'Main Course',
+          recipe: [
+            'Cook pasta in salted boiling water',
+            'Sauté garlic in olive oil',
+            'Add crushed tomatoes and simmer',
+            'Season with basil, salt, and pepper',
+            'Toss with cooked pasta',
+            'Top with grated cheese'
+          ]
+        });
+      }
+      
+      // BEVERAGES
+      if (ingredientList.includes('coffee') || ingredientList.includes('espresso')) {
+        products.push({
+          name: 'Cappuccino',
+          image: '☕',
+          category: 'Beverage',
+          recipe: [
+            'Brew a shot of espresso',
+            'Steam milk until frothy',
+            'Pour espresso into cup',
+            'Add steamed milk',
+            'Top with milk foam',
+            'Optional: dust with cocoa powder'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('tea') || ingredientList.includes('lemon')) {
+        products.push({
+          name: 'Iced Lemon Tea',
+          image: '🍹',
+          category: 'Beverage',
+          recipe: [
+            'Brew strong black tea',
+            'Add sugar while hot and stir',
+            'Let cool to room temperature',
+            'Add fresh lemon juice',
+            'Pour over ice',
+            'Garnish with lemon slices'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('fruit') || ingredientList.includes('banana') || ingredientList.includes('strawberry')) {
+        products.push({
+          name: 'Fruit Smoothie',
+          image: '🥤',
+          category: 'Beverage',
+          recipe: [
+            'Add frozen fruits to blender',
+            'Pour in milk or yogurt',
+            'Add honey or sugar to taste',
+            'Blend until smooth',
+            'Add ice if needed',
+            'Serve immediately'
+          ]
+        });
+      }
+      
+      // BREAD & BAKED GOODS
+      if (ingredientList.includes('flour') && ingredientList.includes('yeast')) {
+        products.push({
+          name: 'Homemade Bread',
+          image: '🍞',
+          category: 'Baked Goods',
+          recipe: [
+            'Mix flour, yeast, salt, and water',
+            'Knead dough for 10 minutes',
+            'Let rise for 1-2 hours',
+            'Shape into loaf',
+            'Let rise again for 30 minutes',
+            'Bake at 375°F for 30-35 minutes'
+          ]
+        });
+      }
+      
+      // CONDIMENTS & SAUCES
+      if (ingredientList.includes('oil') && ingredientList.includes('vinegar')) {
+        products.push({
+          name: 'Salad Dressing',
+          image: '🥗',
+          category: 'Condiment',
+          recipe: [
+            'Combine vinegar and mustard',
+            'Slowly whisk in olive oil',
+            'Add minced garlic',
+            'Season with salt and pepper',
+            'Add herbs if desired',
+            'Store in refrigerator'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('mayonnaise') || (ingredientList.includes('egg') && ingredientList.includes('oil'))) {
+        products.push({
+          name: 'Homemade Mayonnaise',
+          image: '🥫',
+          category: 'Condiment',
+          recipe: [
+            'Whisk egg yolk with mustard',
+            'Very slowly drizzle in oil while whisking',
+            'Continue until thick and creamy',
+            'Add lemon juice',
+            'Season with salt',
+            'Refrigerate immediately'
+          ]
+        });
+      }
+      
+      // RICE DISHES
+      if (ingredientList.includes('rice')) {
+        products.push({
+          name: 'Fried Rice',
+          image: '🍚',
+          category: 'Main Course',
+          recipe: [
+            'Use day-old cooked rice',
+            'Heat oil in wok or large pan',
+            'Scramble eggs and set aside',
+            'Stir-fry vegetables',
+            'Add rice and break up clumps',
+            'Add soy sauce and mix in eggs'
+          ]
+        });
+        
+        if (ingredientList.includes('coconut')) {
+          products.push({
+            name: 'Coconut Rice',
+            image: '🥥',
+            category: 'Side Dish',
+            recipe: [
+              'Rinse rice thoroughly',
+              'Combine rice with coconut milk',
+              'Add salt and sugar',
+              'Bring to boil then reduce heat',
+              'Cover and simmer for 15-20 minutes',
+              'Fluff with fork before serving'
+            ]
+          });
+        }
+      }
+      
+      // SOUP & STEWS
+      if (ingredientList.includes('broth') || ingredientList.includes('stock')) {
+        products.push({
+          name: 'Vegetable Soup',
+          image: '🍲',
+          category: 'Soup',
+          recipe: [
+            'Sauté onions and garlic',
+            'Add chopped vegetables',
+            'Pour in broth or stock',
+            'Season with herbs and spices',
+            'Simmer until vegetables are tender',
+            'Adjust seasoning and serve hot'
+          ]
+        });
+      }
+      
+      // MEAT DISHES
+      if (ingredientList.includes('chicken') || ingredientList.includes('beef') || ingredientList.includes('meat')) {
+        products.push({
+          name: 'Grilled Meat',
+          image: '🍖',
+          category: 'Main Course',
+          recipe: [
+            'Marinate meat with spices',
+            'Let sit for at least 30 minutes',
+            'Preheat grill to medium-high',
+            'Grill meat until cooked through',
+            'Let rest for 5 minutes',
+            'Slice and serve'
+          ]
+        });
+      }
+      
+      // AFRICAN/LOCAL DISHES
+      if (ingredientList.includes('plantain') || ingredientList.includes('yam')) {
+        products.push({
+          name: 'Fried Plantain',
+          image: '🍌',
+          category: 'Side Dish',
+          recipe: [
+            'Peel ripe plantains',
+            'Slice diagonally',
+            'Heat oil in frying pan',
+            'Fry until golden brown',
+            'Flip and fry other side',
+            'Drain on paper towels'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('beans') || ingredientList.includes('palm oil')) {
+        products.push({
+          name: 'Beans Porridge',
+          image: '🫘',
+          category: 'Main Course',
+          recipe: [
+            'Soak beans overnight',
+            'Cook beans until soft',
+            'Add palm oil and onions',
+            'Season with salt and pepper',
+            'Add vegetables if desired',
+            'Simmer until thick'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('cassava') || ingredientList.includes('garri')) {
+        products.push({
+          name: 'Garri (Eba)',
+          image: '🥣',
+          category: 'Staple Food',
+          recipe: [
+            'Boil water in pot',
+            'Gradually add garri while stirring',
+            'Stir vigorously to avoid lumps',
+            'Continue until thick and smooth',
+            'Mold into desired shape',
+            'Serve with soup or stew'
+          ]
+        });
+      }
+      
+      // ASIAN DISHES
+      if (ingredientList.includes('noodle') || ingredientList.includes('ramen')) {
+        products.push({
+          name: 'Stir-Fried Noodles',
+          image: '🍜',
+          category: 'Main Course',
+          recipe: [
+            'Cook noodles according to package',
+            'Heat oil in wok',
+            'Stir-fry vegetables and protein',
+            'Add cooked noodles',
+            'Season with soy sauce',
+            'Toss everything together'
+          ]
+        });
+      }
+      
+      // MEXICAN DISHES
+      if (ingredientList.includes('tortilla') || ingredientList.includes('corn')) {
+        products.push({
+          name: 'Tacos',
+          image: '🌮',
+          category: 'Main Course',
+          recipe: [
+            'Warm tortillas',
+            'Cook seasoned meat or beans',
+            'Fill tortillas with filling',
+            'Add lettuce and tomatoes',
+            'Top with cheese and salsa',
+            'Serve immediately'
+          ]
+        });
+      }
+      
+      // BREAKFAST ITEMS
+      if (ingredientList.includes('egg')) {
+        products.push({
+          name: 'Scrambled Eggs',
+          image: '🍳',
+          category: 'Breakfast',
+          recipe: [
+            'Beat eggs with milk',
+            'Season with salt and pepper',
+            'Heat butter in pan',
+            'Pour in egg mixture',
+            'Stir gently as eggs cook',
+            'Remove when still slightly soft'
+          ]
+        });
+        
+        if (ingredientList.includes('flour')) {
+          products.push({
+            name: 'Pancakes',
+            image: '🥞',
+            category: 'Breakfast',
+            recipe: [
+              'Mix flour, sugar, baking powder',
+              'Whisk eggs with milk',
+              'Combine wet and dry ingredients',
+              'Heat griddle or pan',
+              'Pour batter and cook until bubbles form',
+              'Flip and cook until golden'
+            ]
+          });
+        }
+      }
+      
+      // COSMETICS
+      if (ingredientList.includes('shea butter') || ingredientList.includes('coconut oil')) {
+        products.push({
+          name: 'Body Butter',
+          image: '🧴',
+          category: 'Cosmetic',
+          recipe: [
+            'Melt shea butter in double boiler',
+            'Add coconut oil',
+            'Remove from heat and let cool',
+            'Whip with mixer until fluffy',
+            'Add essential oils if desired',
+            'Store in clean container'
+          ]
+        });
+      }
+      
+      // CLEANING PRODUCTS
+      if (hasBakingSoda && hasVinegar && !hasBleach) {
+        products.push({
+          name: 'Natural Cleaner',
+          image: '🧽',
+          category: 'Cleaning',
+          recipe: [
+            'Mix baking soda with water to form paste',
+            'Apply to surface',
+            'Spray with vinegar (will fizz)',
+            'Let sit for 5-10 minutes',
+            'Scrub and wipe clean',
+            'Rinse with water'
+          ]
+        });
+      }
+      
+      // PAINT & ART
+      if (ingredientList.includes('pigment') || ingredientList.includes('acrylic') || ingredientList.includes('paint')) {
+        products.push({
+          name: 'Custom Paint Mix',
+          image: '🎨',
+          category: 'Art Supply',
+          recipe: [
+            'Start with base paint color',
+            'Add small amounts of pigment',
+            'Mix thoroughly',
+            'Test color on paper',
+            'Adjust by adding more pigment or base',
+            'Store in airtight container'
+          ]
+        });
+      }
+      
+      // Default if no matches
+      if (products.length === 0) {
+        products.push({
+          name: 'Custom Creation',
+          image: '🥘',
+          category: 'Experimental',
+          recipe: [
+            'Combine your ingredients carefully',
+            'Mix well in appropriate container',
+            'Follow safety guidelines for each ingredient',
+            'Cook or process as needed',
+            'Season or adjust to taste',
+            'Test small amounts first'
+          ]
+        });
+      }
+      
+      setResult({
+        isSafe: true,
+        products: products
+      });
       
       setAnalyzing(false);
     }, 2000);
@@ -307,4 +690,5 @@ export default function IngredientMixer() {
     </div>
   );
 }
+
 
