@@ -670,7 +670,7 @@ export default function IngredientMixer() {
                 <label htmlFor="photo-upload" className="cursor-pointer">
                   <div className="text-6xl mb-4">📷</div>
                   <p className="text-lg text-gray-700 mb-2">Click to take or upload a photo</p>
-                  <p className="text-sm text-gray-500">We'll identify the ingredients for you</p>
+                  <p className="text-sm text-gray-500">We&apos;ll identify the ingredients for you</p>
                 </label>
               </div>
               {ingredients && (
@@ -744,7 +744,7 @@ export default function IngredientMixer() {
 
               {result.isSafe && result.products.length > 0 && (
                 <div>
-                  <h3 className="text-2xl font-bold text-green-800 mb-4">✅ Safe to Mix! Here's what you can make:</h3>
+                  <h3 className="text-2xl font-bold text-green-800 mb-4">✅ Safe to Mix! Here&apos;s what you can make:</h3>
                   <div className="space-y-6">
                     {result.products.map((product, idx) => (
                       <div key={idx} className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 border-2 border-green-200">
@@ -868,6 +868,7 @@ export default function IngredientMixer() {
     </div>
   );
 }
+
 
 
 
