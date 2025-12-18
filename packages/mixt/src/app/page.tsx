@@ -15,11 +15,20 @@ type AnalysisResult = {
   corrections?: string[];
 } | null;
 
+type ChatMessage = {
+  role: 'user' | 'assistant';
+  content: string;
+};
+
 export default function IngredientMixer() {
   const [inputMethod, setInputMethod] = useState<IngredientInput | null>(null);
   const [ingredients, setIngredients] = useState<string>('');
   const [analyzing, setAnalyzing] = useState(false);
   const [result, setResult] = useState<AnalysisResult>(null);
+  const [showChat, setShowChat] = useState(false);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const [chatInput, setChatInput] = useState('');
+  const [chatLoading, setChatLoading] = useState(false);
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -519,6 +528,89 @@ export default function IngredientMixer() {
     setResult(null);
   };
 
+  const handleChatSubmit = () => {
+    if (!chatInput.trim()) return;
+    
+    const userMessage = chatInput.trim();
+    setChatMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+    setChatInput('');
+    setChatLoading(true);
+    
+    // Simulate AI response
+    setTimeout(() => {
+      let response = '';
+      const query = userMessage.toLowerCase();
+      
+      // Recipe queries
+      if (query.includes('pizza')) {
+        response = '🍕 To make pizza, you\'ll need: flour, yeast, water, salt, olive oil for the dough. For toppings: tomato sauce, mozzarella cheese, and your favorite toppings like pepperoni, mushrooms, or basil. Mix flour, yeast, salt, and water to form dough. Let it rise for 1-2 hours. Roll out, add sauce and toppings, then bake at 475°F for 12-15 minutes!';
+      } else if (query.includes('cake')) {
+        response = '🎂 For a basic cake, you need: flour, sugar, eggs, butter, baking powder, milk, and vanilla extract. Cream butter and sugar, add eggs one at a time, then alternate adding flour mixture and milk. Bake at 350°F for 30-35 minutes. You can make chocolate cake by adding cocoa powder!';
+      } else if (query.includes('cookie')) {
+        response = '🍪 Cookie basics: flour, sugar, butter, eggs, baking soda, and vanilla. For chocolate chip cookies, add chocolate chips! Mix butter and sugar, add eggs, then flour mixture. Drop spoonfuls on baking sheet and bake at 375°F for 9-11 minutes.';
+      } else if (query.includes('ice cream')) {
+        response = '🍦 Ice cream needs: heavy cream, milk, sugar, egg yolks, and vanilla extract. Heat cream and milk, temper egg yolks with sugar, cook until thick, chill completely, then churn in an ice cream maker. You can add flavors like chocolate, strawberry, or coffee!';
+      } else if (query.includes('bread')) {
+        response = '🍞 Bread ingredients: flour, yeast, water, salt, and a bit of sugar. Mix ingredients, knead for 10 minutes, let rise for 1-2 hours, shape, let rise again, then bake at 375°F for 30-35 minutes. The key is patience with the rising!';
+      } else if (query.includes('pasta')) {
+        response = '🍝 Fresh pasta needs: flour and eggs (about 1 egg per 100g flour). Mix into dough, knead until smooth, rest for 30 minutes, then roll thin and cut into shapes. Cook in boiling salted water for 2-3 minutes. For sauce, try tomato, cream, or olive oil with garlic!';
+      } else if (query.includes('smoothie')) {
+        response = '🥤 Smoothies are easy! Blend frozen fruits (banana, berries, mango), milk or yogurt, and honey or sugar to taste. Add ice if needed. Popular combos: strawberry-banana, mango-pineapple, or berry blast!';
+      } else if (query.includes('soup')) {
+        response = '🍲 Basic soup: sauté onions and garlic, add vegetables, pour in broth or stock, season with herbs, and simmer until tender. You can make chicken soup, vegetable soup, tomato soup, or any combination you like!';
+      } else if (query.includes('pancake')) {
+        response = '🥞 Pancakes need: flour, sugar, baking powder, egg, milk, and melted butter. Mix dry ingredients, whisk wet ingredients separately, combine gently. Cook on hot griddle until bubbles form, flip, and cook until golden. Serve with syrup!';
+      } else if (query.includes('fried rice')) {
+        response = '🍚 Fried rice tip: use day-old rice! Heat oil in wok, scramble eggs and set aside, stir-fry vegetables, add rice and break up clumps, season with soy sauce, mix in eggs. Add protein like chicken, shrimp, or keep it vegetarian!';
+      } else if (query.includes('plantain')) {
+        response = '🍌 Fried plantain: use ripe (yellow with black spots) plantains. Peel, slice diagonally, fry in hot oil until golden brown on both sides. Drain on paper towels. Sweet and delicious!';
+      } else if (query.includes('beans')) {
+        response = '🫘 Beans porridge: soak beans overnight, cook until soft, add palm oil, onions, salt, pepper, and vegetables. Simmer until thick. You can also make bean soup, refried beans, or add to rice!';
+      } else if (query.includes('cosmetic') || query.includes('body butter') || query.includes('lotion')) {
+        response = '🧴 For body butter: melt shea butter in double boiler, add coconut oil, let cool, then whip until fluffy. Add essential oils for scent. Store in clean container. Great for dry skin!';
+      } else if (query.includes('cleaner') || query.includes('cleaning')) {
+        response = '🧽 Natural cleaner: mix baking soda with water to make paste, apply to surface, spray with vinegar (it will fizz!), let sit 5-10 minutes, scrub and wipe. NEVER mix bleach with vinegar or ammonia - very dangerous!';
+      } else if (query.includes('paint')) {
+        response = '🎨 For custom paint: start with base color, add small amounts of pigment, mix thoroughly, test on paper, adjust as needed. Mix colors: red + yellow = orange, blue + yellow = green, red + blue = purple!';
+      } else if (query.includes('taco')) {
+        response = '🌮 Tacos: warm tortillas, fill with seasoned meat or beans, add lettuce, tomatoes, cheese, and salsa. Season meat with cumin, chili powder, garlic, and paprika. Top with sour cream and guacamole!';
+      } else if (query.includes('noodle') || query.includes('ramen')) {
+        response = '🍜 Stir-fried noodles: cook noodles, drain. Heat oil in wok, stir-fry vegetables and protein, add noodles, season with soy sauce and sesame oil. Add garlic, ginger, and chili for extra flavor!';
+      } else if (query.includes('salad')) {
+        response = '🥗 Salad dressing: whisk vinegar with mustard, slowly drizzle in olive oil while whisking, add minced garlic, salt, pepper, and herbs. Classic ratio is 3 parts oil to 1 part vinegar!';
+      } else if (query.includes('egg')) {
+        response = '🍳 Eggs are versatile! Scrambled: beat with milk, cook in butter, stir gently. Fried: cook in oil until whites set. Boiled: 6 mins soft, 10 mins hard. Omelette: beat eggs, cook, add fillings, fold. Poached: simmer in water with vinegar!';
+      } else if (query.includes('coconut rice')) {
+        response = '🥥 Coconut rice: rinse rice, cook with coconut milk instead of water, add salt and a bit of sugar. The coconut milk makes it creamy and flavorful. Great with curry or grilled meat!';
+      } else if (query.includes('mayonnaise')) {
+        response = '🥫 Homemade mayo: whisk egg yolk with mustard, VERY slowly drizzle in oil while whisking constantly until thick, add lemon juice and salt. Must refrigerate immediately. Use within 3-4 days!';
+      } else if (query.includes('biscuit')) {
+        response = '🥐 Biscuits: mix flour, baking powder, salt. Cut in COLD butter until crumbly. Add milk, stir just until combined (don\'t overmix!). Roll out, cut rounds, bake at 450°F for 12-15 minutes. Serve warm with butter!';
+      } else if (query.includes('cappuccino') || query.includes('coffee')) {
+        response = '☕ Cappuccino: brew espresso shot, steam milk until frothy, pour espresso into cup, add steamed milk, top with foam. Ratio is 1/3 espresso, 1/3 steamed milk, 1/3 foam. Dust with cocoa if desired!';
+      } else if (query.includes('tea')) {
+        response = '🍹 Iced tea: brew strong tea, add sugar while hot, let cool, add lemon juice, pour over ice. For hot tea: steep tea bag 3-5 minutes depending on strength desired. Green tea needs cooler water than black tea!';
+      } else if (query.includes('garri') || query.includes('eba')) {
+        response = '🥣 Garri (Eba): boil water, gradually add garri while stirring vigorously to avoid lumps. Continue stirring until thick and smooth. Mold into ball shape. Serve with soup like egusi, okra, or vegetable soup!';
+      } else if (query.includes('what can i make') || query.includes('ingredients')) {
+        response = 'Tell me what ingredients you have, and I\'ll suggest recipes! You can make cakes, cookies, pizza, ice cream, bread, pasta, soups, fried rice, smoothies, pancakes, local dishes like fried plantain and beans porridge, and even cosmetics or cleaning products. What do you have in your pantry?';
+      } else if (query.includes('substitute') || query.includes('replace')) {
+        response = 'Common substitutes: butter → oil or margarine; milk → water or plant milk; eggs → flax eggs (1 tbsp flax + 3 tbsp water) or applesauce; sugar → honey or maple syrup; flour → almond flour or oat flour. What ingredient do you need to replace?';
+      } else if (query.includes('vegan') || query.includes('vegetarian')) {
+        response = 'For vegan cooking: replace eggs with flax eggs or applesauce, use plant milk instead of dairy, use coconut oil or vegan butter, and nutritional yeast for cheesy flavor. Many recipes can be veganized! What would you like to make?';
+      } else if (query.includes('gluten free')) {
+        response = 'For gluten-free: use gluten-free flour blends, almond flour, coconut flour, or oat flour. Rice, quinoa, and corn are naturally gluten-free. Check labels on sauces and seasonings. What recipe are you adapting?';
+      } else if (query.includes('dangerous') || query.includes('toxic') || query.includes('safe')) {
+        response = '⚠️ NEVER mix: bleach + ammonia (toxic gas), bleach + vinegar (toxic gas), bleach + rubbing alcohol (chloroform). Keep food ingredients separate from cleaning chemicals. Always research before mixing unfamiliar substances!';
+      } else {
+        response = 'I can help you with recipes for cakes, cookies, pizza, ice cream, bread, pasta, soups, smoothies, pancakes, fried rice, local dishes, and more! I can also advise on cosmetics, cleaning products, and ingredient safety. What would you like to know about?';
+      }
+      
+      setChatMessages(prev => [...prev, { role: 'assistant', content: response }]);
+      setChatLoading(false);
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
@@ -687,8 +779,97 @@ export default function IngredientMixer() {
           <p>💡 Tip: Always verify ingredient safety before mixing chemicals or unfamiliar substances</p>
         </div>
       </div>
+
+      {/* Floating Chat Button */}
+      <button
+        onClick={() => setShowChat(!showChat)}
+        className="fixed bottom-6 right-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50"
+      >
+        <span className="text-2xl">{showChat ? '✕' : '💬'}</span>
+      </button>
+
+      {/* Chat Window */}
+      {showChat && (
+        <div className="fixed bottom-24 right-6 w-96 max-w-[calc(100vw-3rem)] bg-white rounded-2xl shadow-2xl z-50 flex flex-col max-h-[600px]">
+          {/* Chat Header */}
+          <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4 rounded-t-2xl">
+            <h3 className="font-bold text-lg">🧑‍🍳 Recipe Assistant</h3>
+            <p className="text-sm opacity-90">Ask me about any recipe or ingredient!</p>
+          </div>
+
+          {/* Chat Messages */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 min-h-[300px] max-h-[400px]">
+            {chatMessages.length === 0 && (
+              <div className="text-center text-gray-500 mt-8">
+                <p className="mb-4">👋 Hi! I can help you with:</p>
+                <ul className="text-sm space-y-2 text-left max-w-xs mx-auto">
+                  <li>🍕 Pizza, pasta, and Italian dishes</li>
+                  <li>🎂 Cakes, cookies, and desserts</li>
+                  <li>🍦 Ice cream and frozen treats</li>
+                  <li>🍚 Rice dishes and Asian food</li>
+                  <li>🌮 Tacos and Mexican cuisine</li>
+                  <li>🍌 Local African dishes</li>
+                  <li>🧴 Cosmetics and cleaning products</li>
+                  <li>⚠️ Ingredient safety tips</li>
+                </ul>
+                <p className="mt-4 text-xs">Ask me anything!</p>
+              </div>
+            )}
+            
+            {chatMessages.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              >
+                <div
+                  className={`max-w-[80%] p-3 rounded-2xl ${
+                    msg.role === 'user'
+                      ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white'
+                      : 'bg-gray-100 text-gray-800'
+                  }`}
+                >
+                  <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                </div>
+              </div>
+            ))}
+            
+            {chatLoading && (
+              <div className="flex justify-start">
+                <div className="bg-gray-100 text-gray-800 p-3 rounded-2xl">
+                  <p className="text-sm">Thinking...</p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Chat Input */}
+          <div className="p-4 border-t border-gray-200">
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={chatInput}
+                onChange={(e) => setChatInput(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleChatSubmit()}
+                placeholder="Ask about ingredients or recipes..."
+                className="flex-1 p-3 border-2 border-gray-200 rounded-lg focus:border-purple-400 focus:outline-none text-sm"
+                disabled={chatLoading}
+              />
+              <button
+                onClick={handleChatSubmit}
+                disabled={chatLoading || !chatInput.trim()}
+                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-3 rounded-lg font-semibold hover:opacity-90 disabled:opacity-50 transition-opacity"
+              >
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
+
+
 
 
