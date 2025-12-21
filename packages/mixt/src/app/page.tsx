@@ -332,19 +332,138 @@ export default function IngredientMixer() {
         });
       }
       
-      // AFRICAN/LOCAL DISHES
-      if (ingredientList.includes('plantain') || ingredientList.includes('yam')) {
+      // NIGERIAN/AFRICAN DISHES
+      if (ingredientList.includes('yam')) {
         products.push({
-          name: 'Fried Plantain',
-          image: '🍌',
-          category: 'Side Dish',
+          name: 'Pounded Yam',
+          image: '🍠',
+          category: 'Nigerian Staple',
           recipe: [
-            'Peel ripe plantains',
-            'Slice diagonally',
-            'Heat oil in frying pan',
-            'Fry until golden brown',
+            'Peel and cut yam into chunks',
+            'Boil yam until very soft (about 20-30 minutes)',
+            'Drain water completely',
+            'Pound yam with mortar and pestle or use a food processor',
+            'Add small amounts of warm water while pounding',
+            'Continue until smooth and stretchy',
+            'Mold into balls and serve with soup (egusi, ogbono, or vegetable soup)'
+          ]
+        });
+        
+        products.push({
+          name: 'Fried Yam',
+          image: '🍟',
+          category: 'Nigerian Snack',
+          recipe: [
+            'Peel yam and cut into thick slices or wedges',
+            'Soak in salted water for 10 minutes',
+            'Pat dry with paper towels',
+            'Heat vegetable oil in deep pan',
+            'Fry yam until golden brown and crispy',
+            'Drain on paper towels',
+            'Serve with pepper sauce or stew'
+          ]
+        });
+        
+        products.push({
+          name: 'Yam Porridge (Asaro)',
+          image: '🥘',
+          category: 'Nigerian Main Course',
+          recipe: [
+            'Peel and cube yam',
+            'Boil yam with water until partially soft',
+            'Add palm oil, onions, and crayfish',
+            'Add tomatoes, peppers, and seasoning',
+            'Add vegetables (spinach or ugwu)',
+            'Mash some yam to thicken the porridge',
+            'Simmer until yam is fully cooked and porridge is thick'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('jollof') || (ingredientList.includes('rice') && ingredientList.includes('tomato'))) {
+        products.push({
+          name: 'Jollof Rice',
+          image: '🍚',
+          category: 'Nigerian Main Course',
+          recipe: [
+            'Blend tomatoes, peppers, and onions into a smooth paste',
+            'Heat oil and fry the tomato paste until oil rises to the top',
+            'Add curry powder, thyme, bay leaves, and seasoning cubes',
+            'Pour in chicken or beef stock',
+            'Add washed rice and stir well',
+            'Cover pot tightly and cook on low heat',
+            'Stir occasionally until rice is cooked and fluffy (about 30 minutes)',
+            'Serve with fried plantain, chicken, or coleslaw'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('amala') || ingredientList.includes('yam flour')) {
+        products.push({
+          name: 'Amala',
+          image: '🥣',
+          category: 'Nigerian Staple',
+          recipe: [
+            'Boil water in a pot until very hot',
+            'Reduce heat to low',
+            'Gradually add yam flour (elubo) while stirring continuously',
+            'Stir vigorously to prevent lumps',
+            'Add more flour until thick and smooth',
+            'Cover and let steam for 2-3 minutes',
+            'Stir again until very smooth and stretchy',
+            'Mold into desired shape',
+            'Serve with ewedu, gbegiri, or any Nigerian soup'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('semovita') || ingredientList.includes('semolina')) {
+        products.push({
+          name: 'Semovita',
+          image: '🥣',
+          category: 'Nigerian Staple',
+          recipe: [
+            'Boil water in a pot',
+            'Pour small amount of semovita into cold water and mix',
+            'Pour the mixture into boiling water while stirring',
+            'Gradually add more semovita powder',
+            'Stir continuously to avoid lumps',
+            'Continue until thick and smooth',
+            'Cover and let cook for 2 minutes',
+            'Stir again until very smooth',
+            'Mold into balls and serve with any Nigerian soup'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('plantain')) {
+        products.push({
+          name: 'Fried Plantain (Dodo)',
+          image: '🍌',
+          category: 'Nigerian Side Dish',
+          recipe: [
+            'Peel ripe plantains (yellow with black spots)',
+            'Slice diagonally or into rounds',
+            'Heat vegetable oil in frying pan',
+            'Fry plantain slices until golden brown',
             'Flip and fry other side',
-            'Drain on paper towels'
+            'Drain on paper towels',
+            'Serve as side dish with rice, beans, or stew'
+          ]
+        });
+        
+        products.push({
+          name: 'Plantain Porridge',
+          image: '🍲',
+          category: 'Nigerian Main Course',
+          recipe: [
+            'Peel and cut plantains into chunks',
+            'Boil with water, onions, and crayfish',
+            'Add palm oil and ground pepper',
+            'Add smoked fish or meat (optional)',
+            'Season with salt and seasoning cubes',
+            'Add vegetables (spinach or scent leaves)',
+            'Simmer until plantains are soft and porridge is thick'
           ]
         });
       }
@@ -353,14 +472,15 @@ export default function IngredientMixer() {
         products.push({
           name: 'Beans Porridge',
           image: '🫘',
-          category: 'Main Course',
+          category: 'Nigerian Main Course',
           recipe: [
-            'Soak beans overnight',
-            'Cook beans until soft',
-            'Add palm oil and onions',
-            'Season with salt and pepper',
-            'Add vegetables if desired',
-            'Simmer until thick'
+            'Soak beans overnight or parboil to remove skin',
+            'Cook beans with water until soft',
+            'Add palm oil, onions, and crayfish',
+            'Add ground pepper and seasoning cubes',
+            'Add vegetables (spinach or pumpkin leaves)',
+            'Simmer until thick and well combined',
+            'Serve with fried plantain or garri'
           ]
         });
       }
@@ -369,14 +489,31 @@ export default function IngredientMixer() {
         products.push({
           name: 'Garri (Eba)',
           image: '🥣',
-          category: 'Staple Food',
+          category: 'Nigerian Staple',
           recipe: [
-            'Boil water in pot',
-            'Gradually add garri while stirring',
-            'Stir vigorously to avoid lumps',
+            'Boil water in pot until very hot',
+            'Pour garri into a bowl',
+            'Gradually add hot water while stirring',
+            'Stir vigorously with wooden spoon to avoid lumps',
             'Continue until thick and smooth',
+            'Knead with your hand (use plastic bag if too hot)',
             'Mold into desired shape',
-            'Serve with soup or stew'
+            'Serve with soup (egusi, okra, vegetable, or ogbono soup)'
+          ]
+        });
+        
+        products.push({
+          name: 'Garri Soakings',
+          image: '🥛',
+          category: 'Nigerian Snack',
+          recipe: [
+            'Put desired amount of garri in a bowl',
+            'Add cold water',
+            'Add sugar to taste',
+            'Add milk (optional)',
+            'Add groundnuts or coconut (optional)',
+            'Stir well and drink/eat immediately',
+            'Popular quick snack or breakfast'
           ]
         });
       }
@@ -540,6 +677,156 @@ export default function IngredientMixer() {
       const query = searchQuery.toLowerCase();
       const results: Array<{name: string; image: string; recipe: string[]; category: string;}> = [];
       
+      // NIGERIAN DISHES
+      if (query.includes('jollof')) {
+        results.push({
+          name: 'Jollof Rice',
+          image: '🍚',
+          category: 'Nigerian Main Course',
+          recipe: [
+            'Blend tomatoes, peppers, and onions into a smooth paste',
+            'Heat oil and fry the tomato paste until oil rises to the top',
+            'Add curry powder, thyme, bay leaves, and seasoning cubes',
+            'Pour in chicken or beef stock',
+            'Add washed rice and stir well',
+            'Cover pot tightly and cook on low heat',
+            'Stir occasionally until rice is cooked and fluffy (about 30 minutes)',
+            'Serve with fried plantain, chicken, or coleslaw'
+          ]
+        });
+      }
+      
+      if (query.includes('yam')) {
+        results.push({
+          name: 'Pounded Yam',
+          image: '🍠',
+          category: 'Nigerian Staple',
+          recipe: [
+            'Peel and cut yam into chunks',
+            'Boil yam until very soft (about 20-30 minutes)',
+            'Drain water completely',
+            'Pound yam with mortar and pestle or use a food processor',
+            'Add small amounts of warm water while pounding',
+            'Continue until smooth and stretchy',
+            'Mold into balls and serve with soup'
+          ]
+        });
+        
+        results.push({
+          name: 'Fried Yam',
+          image: '🍟',
+          category: 'Nigerian Snack',
+          recipe: [
+            'Peel yam and cut into thick slices',
+            'Soak in salted water for 10 minutes',
+            'Pat dry with paper towels',
+            'Heat oil and fry until golden brown',
+            'Drain and serve with pepper sauce'
+          ]
+        });
+      }
+      
+      if (query.includes('amala')) {
+        results.push({
+          name: 'Amala',
+          image: '🥣',
+          category: 'Nigerian Staple',
+          recipe: [
+            'Boil water in a pot until very hot',
+            'Reduce heat to low',
+            'Gradually add yam flour while stirring continuously',
+            'Stir vigorously to prevent lumps',
+            'Add more flour until thick and smooth',
+            'Cover and let steam for 2-3 minutes',
+            'Stir again until very smooth',
+            'Serve with ewedu, gbegiri, or any soup'
+          ]
+        });
+      }
+      
+      if (query.includes('semovita') || query.includes('semo')) {
+        results.push({
+          name: 'Semovita',
+          image: '🥣',
+          category: 'Nigerian Staple',
+          recipe: [
+            'Boil water in a pot',
+            'Mix small amount of semovita with cold water',
+            'Pour mixture into boiling water while stirring',
+            'Gradually add more semovita powder',
+            'Stir continuously to avoid lumps',
+            'Continue until thick and smooth',
+            'Serve with any Nigerian soup'
+          ]
+        });
+      }
+      
+      if (query.includes('pounded')) {
+        results.push({
+          name: 'Pounded Yam',
+          image: '🍠',
+          category: 'Nigerian Staple',
+          recipe: [
+            'Peel and cut yam into chunks',
+            'Boil yam until very soft',
+            'Drain water completely',
+            'Pound until smooth and stretchy',
+            'Mold into balls',
+            'Serve with egusi, ogbono, or vegetable soup'
+          ]
+        });
+      }
+      
+      if (query.includes('plantain')) {
+        results.push({
+          name: 'Fried Plantain (Dodo)',
+          image: '🍌',
+          category: 'Nigerian Side Dish',
+          recipe: [
+            'Peel ripe plantains',
+            'Slice diagonally',
+            'Heat oil in frying pan',
+            'Fry until golden brown',
+            'Flip and fry other side',
+            'Drain and serve'
+          ]
+        });
+      }
+      
+      if (query.includes('garri') || query.includes('eba')) {
+        results.push({
+          name: 'Garri (Eba)',
+          image: '🥣',
+          category: 'Nigerian Staple',
+          recipe: [
+            'Boil water until very hot',
+            'Pour garri into a bowl',
+            'Gradually add hot water while stirring',
+            'Stir vigorously to avoid lumps',
+            'Continue until thick and smooth',
+            'Mold into shape',
+            'Serve with soup'
+          ]
+        });
+      }
+      
+      if (query.includes('beans')) {
+        results.push({
+          name: 'Beans Porridge',
+          image: '🫘',
+          category: 'Nigerian Main Course',
+          recipe: [
+            'Soak beans overnight',
+            'Cook beans until soft',
+            'Add palm oil, onions, and crayfish',
+            'Add pepper and seasoning',
+            'Add vegetables',
+            'Simmer until thick'
+          ]
+        });
+      }
+      
+      // INTERNATIONAL DISHES
       if (query.includes('pizza')) {
         results.push({
           name: 'Margherita Pizza',
@@ -732,22 +1019,6 @@ export default function IngredientMixer() {
         });
       }
       
-      if (query.includes('plantain')) {
-        results.push({
-          name: 'Fried Plantain',
-          image: '🍌',
-          category: 'Side Dish',
-          recipe: [
-            'Peel ripe plantains',
-            'Slice diagonally',
-            'Heat oil in frying pan',
-            'Fry until golden brown',
-            'Flip and fry other side',
-            'Drain on paper towels'
-          ]
-        });
-      }
-      
       if (query.includes('egg')) {
         results.push({
           name: 'Scrambled Eggs',
@@ -786,9 +1057,10 @@ export default function IngredientMixer() {
           image: '🔍',
           category: 'Search',
           recipe: [
-            'Try searching for: pizza, pasta, cake, cookies, ice cream',
+            'Try searching for Nigerian dishes: jollof rice, pounded yam, amala, semovita, eba, garri, beans, plantain',
+            'Or international dishes: pizza, pasta, cake, cookies, ice cream',
             'Or: bread, pancakes, smoothie, soup, fried rice',
-            'Or: tacos, noodles, plantain, eggs, salad',
+            'Or: tacos, noodles, eggs, salad',
             'You can also use the ingredient analyzer below!'
           ]
         });
@@ -812,8 +1084,22 @@ export default function IngredientMixer() {
       let response = '';
       const query = userMessage.toLowerCase();
       
-      // Recipe queries
-      if (query.includes('pizza')) {
+      // Nigerian dishes
+      if (query.includes('jollof')) {
+        response = '🍚 Jollof Rice is a beloved West African dish! You need: rice, tomatoes, peppers, onions, oil, curry powder, thyme, bay leaves, and stock. The key is frying the tomato paste until the oil separates - this gives jollof its signature taste. Cook the rice in the seasoned tomato base until fluffy. Serve with fried plantain, chicken, or coleslaw!';
+      } else if (query.includes('pounded yam') || query.includes('yam')) {
+        response = '🍠 Pounded Yam is a Nigerian staple! Peel and boil yam chunks until very soft (20-30 minutes). Drain completely, then pound with a mortar and pestle (or food processor) until smooth and stretchy. Add small amounts of warm water while pounding. Mold into balls and serve with egusi, ogbono, or vegetable soup. You can also make fried yam or yam porridge (asaro)!';
+      } else if (query.includes('amala')) {
+        response = '🥣 Amala is made from yam flour (elubo)! Boil water until very hot, reduce heat, then gradually add yam flour while stirring continuously. Stir vigorously to prevent lumps. Add more flour until thick and smooth, cover and steam for 2-3 minutes, then stir again. Serve with ewedu and gbegiri soup, or any Nigerian soup!';
+      } else if (query.includes('semovita') || query.includes('semo')) {
+        response = '🥣 Semovita is easy to make! Boil water, mix a small amount of semovita with cold water first, pour into boiling water while stirring, then gradually add more semovita powder. Stir continuously to avoid lumps until thick and smooth. Cover and cook for 2 minutes, stir again. Serve with any Nigerian soup - egusi, okra, vegetable, or ogbono!';
+      } else if (query.includes('garri') || query.includes('eba')) {
+        response = '🥣 Garri (Eba) is quick and easy! Boil water until very hot. Put garri in a bowl, gradually add hot water while stirring vigorously with a wooden spoon to avoid lumps. Continue until thick and smooth. You can knead with your hand (use a plastic bag if too hot). Mold into shape and serve with soup. You can also make garri soakings with cold water, sugar, milk, and groundnuts!';
+      } else if (query.includes('plantain')) {
+        response = '🍌 Fried Plantain (Dodo) is delicious! Use ripe plantains (yellow with black spots for sweet, or green for savory). Peel and slice diagonally or into rounds. Fry in hot oil until golden brown on both sides. Drain on paper towels. Serve with rice, beans, or stew. You can also make plantain porridge with palm oil, peppers, and vegetables!';
+      } else if (query.includes('beans')) {
+        response = '🫘 Beans Porridge is nutritious and filling! Soak beans overnight or parboil to remove skin. Cook until soft, add palm oil, onions, crayfish, ground pepper, and seasoning cubes. Add vegetables like spinach or pumpkin leaves. Simmer until thick. Serve with fried plantain, garri, or bread. You can add smoked fish or meat for extra flavor!';
+      } else if (query.includes('pizza')) {
         response = '🍕 To make pizza, you\'ll need: flour, yeast, water, salt, olive oil for the dough. For toppings: tomato sauce, mozzarella cheese, and your favorite toppings like pepperoni, mushrooms, or basil. Mix flour, yeast, salt, and water to form dough. Let it rise for 1-2 hours. Roll out, add sauce and toppings, then bake at 475°F for 12-15 minutes!';
       } else if (query.includes('cake')) {
         response = '🎂 For a basic cake, you need: flour, sugar, eggs, butter, baking powder, milk, and vanilla extract. Cream butter and sugar, add eggs one at a time, then alternate adding flour mixture and milk. Bake at 350°F for 30-35 minutes. You can make chocolate cake by adding cocoa powder!';
@@ -833,10 +1119,6 @@ export default function IngredientMixer() {
         response = '🥞 Pancakes need: flour, sugar, baking powder, egg, milk, and melted butter. Mix dry ingredients, whisk wet ingredients separately, combine gently. Cook on hot griddle until bubbles form, flip, and cook until golden. Serve with syrup!';
       } else if (query.includes('fried rice')) {
         response = '🍚 Fried rice tip: use day-old rice! Heat oil in wok, scramble eggs and set aside, stir-fry vegetables, add rice and break up clumps, season with soy sauce, mix in eggs. Add protein like chicken, shrimp, or keep it vegetarian!';
-      } else if (query.includes('plantain')) {
-        response = '🍌 Fried plantain: use ripe (yellow with black spots) plantains. Peel, slice diagonally, fry in hot oil until golden brown on both sides. Drain on paper towels. Sweet and delicious!';
-      } else if (query.includes('beans')) {
-        response = '🫘 Beans porridge: soak beans overnight, cook until soft, add palm oil, onions, salt, pepper, and vegetables. Simmer until thick. You can also make bean soup, refried beans, or add to rice!';
       } else if (query.includes('cosmetic') || query.includes('body butter') || query.includes('lotion')) {
         response = '🧴 For body butter: melt shea butter in double boiler, add coconut oil, let cool, then whip until fluffy. Add essential oils for scent. Store in clean container. Great for dry skin!';
       } else if (query.includes('cleaner') || query.includes('cleaning')) {
@@ -851,20 +1133,10 @@ export default function IngredientMixer() {
         response = '🥗 Salad dressing: whisk vinegar with mustard, slowly drizzle in olive oil while whisking, add minced garlic, salt, pepper, and herbs. Classic ratio is 3 parts oil to 1 part vinegar!';
       } else if (query.includes('egg')) {
         response = '🍳 Eggs are versatile! Scrambled: beat with milk, cook in butter, stir gently. Fried: cook in oil until whites set. Boiled: 6 mins soft, 10 mins hard. Omelette: beat eggs, cook, add fillings, fold. Poached: simmer in water with vinegar!';
-      } else if (query.includes('coconut rice')) {
-        response = '🥥 Coconut rice: rinse rice, cook with coconut milk instead of water, add salt and a bit of sugar. The coconut milk makes it creamy and flavorful. Great with curry or grilled meat!';
-      } else if (query.includes('mayonnaise')) {
-        response = '🥫 Homemade mayo: whisk egg yolk with mustard, VERY slowly drizzle in oil while whisking constantly until thick, add lemon juice and salt. Must refrigerate immediately. Use within 3-4 days!';
-      } else if (query.includes('biscuit')) {
-        response = '🥐 Biscuits: mix flour, baking powder, salt. Cut in COLD butter until crumbly. Add milk, stir just until combined (don\'t overmix!). Roll out, cut rounds, bake at 450°F for 12-15 minutes. Serve warm with butter!';
-      } else if (query.includes('cappuccino') || query.includes('coffee')) {
-        response = '☕ Cappuccino: brew espresso shot, steam milk until frothy, pour espresso into cup, add steamed milk, top with foam. Ratio is 1/3 espresso, 1/3 steamed milk, 1/3 foam. Dust with cocoa if desired!';
-      } else if (query.includes('tea')) {
-        response = '🍹 Iced tea: brew strong tea, add sugar while hot, let cool, add lemon juice, pour over ice. For hot tea: steep tea bag 3-5 minutes depending on strength desired. Green tea needs cooler water than black tea!';
-      } else if (query.includes('garri') || query.includes('eba')) {
-        response = '🥣 Garri (Eba): boil water, gradually add garri while stirring vigorously to avoid lumps. Continue stirring until thick and smooth. Mold into ball shape. Serve with soup like egusi, okra, or vegetable soup!';
+      } else if (query.includes('nigerian') || query.includes('african')) {
+        response = 'I can help with Nigerian dishes! Popular ones include: Jollof Rice, Pounded Yam, Amala, Semovita, Eba (Garri), Fried Plantain, Beans Porridge, Yam Porridge, Egusi Soup, Okra Soup, and more! What would you like to know about?';
       } else if (query.includes('what can i make') || query.includes('ingredients')) {
-        response = 'Tell me what ingredients you have, and I\'ll suggest recipes! You can make cakes, cookies, pizza, ice cream, bread, pasta, soups, fried rice, smoothies, pancakes, local dishes like fried plantain and beans porridge, and even cosmetics or cleaning products. What do you have in your pantry?';
+        response = 'Tell me what ingredients you have, and I\'ll suggest recipes! You can make Nigerian dishes (jollof, pounded yam, amala, semovita, eba), international dishes (cakes, cookies, pizza, ice cream, bread, pasta), soups, smoothies, pancakes, and even cosmetics or cleaning products. What do you have?';
       } else if (query.includes('substitute') || query.includes('replace')) {
         response = 'Common substitutes: butter → oil or margarine; milk → water or plant milk; eggs → flax eggs (1 tbsp flax + 3 tbsp water) or applesauce; sugar → honey or maple syrup; flour → almond flour or oat flour. What ingredient do you need to replace?';
       } else if (query.includes('vegan') || query.includes('vegetarian')) {
@@ -874,7 +1146,7 @@ export default function IngredientMixer() {
       } else if (query.includes('dangerous') || query.includes('toxic') || query.includes('safe')) {
         response = '⚠️ NEVER mix: bleach + ammonia (toxic gas), bleach + vinegar (toxic gas), bleach + rubbing alcohol (chloroform). Keep food ingredients separate from cleaning chemicals. Always research before mixing unfamiliar substances!';
       } else {
-        response = 'I can help you with recipes for cakes, cookies, pizza, ice cream, bread, pasta, soups, smoothies, pancakes, fried rice, local dishes, and more! I can also advise on cosmetics, cleaning products, and ingredient safety. What would you like to know about?';
+        response = 'I can help you with Nigerian dishes (jollof rice, pounded yam, amala, semovita, eba, plantain, beans), international recipes (cakes, cookies, pizza, ice cream, bread, pasta), soups, smoothies, pancakes, and more! I can also advise on cosmetics, cleaning products, and ingredient safety. What would you like to know about?';
       }
       
       setChatMessages(prev => [...prev, { role: 'assistant', content: response }]);
@@ -904,7 +1176,7 @@ export default function IngredientMixer() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                placeholder="Search for dishes and snacks recipes... (e.g., pizza, cake, cookies)"
+                placeholder="Search for dishes and snacks recipes... (e.g., jollof rice, pounded yam, pizza)"
                 className="w-full p-4 pl-12 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:outline-none text-lg"
                 disabled={isSearching}
               />
@@ -1135,12 +1407,13 @@ export default function IngredientMixer() {
               <div className="text-center text-gray-500 mt-8">
                 <p className="mb-4">👋 Hi! I can help you with:</p>
                 <ul className="text-sm space-y-2 text-left max-w-xs mx-auto">
+                  <li>🍚 Jollof Rice, Pounded Yam, Amala</li>
+                  <li>🥣 Semovita, Eba (Garri), Beans</li>
+                  <li>🍌 Fried Plantain and more Nigerian dishes</li>
                   <li>🍕 Pizza, pasta, and Italian dishes</li>
                   <li>🎂 Cakes, cookies, and desserts</li>
                   <li>🍦 Ice cream and frozen treats</li>
-                  <li>🍚 Rice dishes and Asian food</li>
-                  <li>🌮 Tacos and Mexican cuisine</li>
-                  <li>🍌 Local African dishes</li>
+                  <li>🌮 Tacos and international cuisine</li>
                   <li>🧴 Cosmetics and cleaning products</li>
                   <li>⚠️ Ingredient safety tips</li>
                 </ul>
@@ -1200,12 +1473,4 @@ export default function IngredientMixer() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
 
