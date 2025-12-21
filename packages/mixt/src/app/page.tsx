@@ -627,7 +627,12 @@ export default function IngredientMixer() {
         {/* Main Card */}
         <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
           {!inputMethod && !result && (
-            <div className="space-y-4">
+            <div className="space-y-6">
+              {/* Search Icon */}
+              <div className="flex justify-center mb-6">
+                <div className="text-7xl">🔍</div>
+              </div>
+              
               <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
                 How would you like to add ingredients?
               </h2>
@@ -868,6 +873,7 @@ export default function IngredientMixer() {
     </div>
   );
 }
+
 
 
 
