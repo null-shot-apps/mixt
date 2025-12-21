@@ -29,6 +29,9 @@ export default function IngredientMixer() {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
   const [chatInput, setChatInput] = useState('');
   const [chatLoading, setChatLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<Array<{name: string; image: string; recipe: string[]; category: string;}>>([]);
+  const [isSearching, setIsSearching] = useState(false);
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -528,6 +531,274 @@ export default function IngredientMixer() {
     setResult(null);
   };
 
+  const handleSearch = () => {
+    if (!searchQuery.trim()) return;
+    
+    setIsSearching(true);
+    
+    setTimeout(() => {
+      const query = searchQuery.toLowerCase();
+      const results: Array<{name: string; image: string; recipe: string[]; category: string;}> = [];
+      
+      if (query.includes('pizza')) {
+        results.push({
+          name: 'Margherita Pizza',
+          image: '🍕',
+          category: 'Main Course',
+          recipe: [
+            'Prepare pizza dough and let rise',
+            'Roll out dough into circle',
+            'Spread tomato sauce',
+            'Add fresh mozzarella cheese',
+            'Top with basil leaves',
+            'Bake at 475°F for 12-15 minutes'
+          ]
+        });
+      }
+      
+      if (query.includes('cookie')) {
+        results.push({
+          name: 'Chocolate Chip Cookies',
+          image: '🍪',
+          category: 'Dessert',
+          recipe: [
+            'Preheat oven to 375°F (190°C)',
+            'Mix butter and sugars until creamy',
+            'Beat in eggs and vanilla',
+            'Combine flour, baking soda, and salt',
+            'Stir in chocolate chips',
+            'Bake for 9-11 minutes'
+          ]
+        });
+      }
+      
+      if (query.includes('cake')) {
+        results.push({
+          name: 'Vanilla Cake',
+          image: '🎂',
+          category: 'Dessert',
+          recipe: [
+            'Preheat oven to 350°F (175°C)',
+            'Cream butter and sugar',
+            'Add eggs one at a time',
+            'Mix in vanilla extract',
+            'Alternate adding flour and milk',
+            'Bake for 30-35 minutes'
+          ]
+        });
+      }
+      
+      if (query.includes('ice cream')) {
+        results.push({
+          name: 'Vanilla Ice Cream',
+          image: '🍦',
+          category: 'Frozen Dessert',
+          recipe: [
+            'Heat milk and cream until warm',
+            'Whisk egg yolks with sugar',
+            'Temper eggs with warm milk mixture',
+            'Cook until thickened',
+            'Add vanilla extract and chill',
+            'Churn in ice cream maker for 20-25 minutes'
+          ]
+        });
+      }
+      
+      if (query.includes('pasta')) {
+        results.push({
+          name: 'Pasta Marinara',
+          image: '🍝',
+          category: 'Main Course',
+          recipe: [
+            'Cook pasta in salted boiling water',
+            'Sauté garlic in olive oil',
+            'Add crushed tomatoes and simmer',
+            'Season with basil, salt, and pepper',
+            'Toss with cooked pasta',
+            'Top with grated cheese'
+          ]
+        });
+      }
+      
+      if (query.includes('smoothie')) {
+        results.push({
+          name: 'Fruit Smoothie',
+          image: '🥤',
+          category: 'Beverage',
+          recipe: [
+            'Add frozen fruits to blender',
+            'Pour in milk or yogurt',
+            'Add honey or sugar to taste',
+            'Blend until smooth',
+            'Add ice if needed',
+            'Serve immediately'
+          ]
+        });
+      }
+      
+      if (query.includes('bread')) {
+        results.push({
+          name: 'Homemade Bread',
+          image: '🍞',
+          category: 'Baked Goods',
+          recipe: [
+            'Mix flour, yeast, salt, and water',
+            'Knead dough for 10 minutes',
+            'Let rise for 1-2 hours',
+            'Shape into loaf',
+            'Let rise again for 30 minutes',
+            'Bake at 375°F for 30-35 minutes'
+          ]
+        });
+      }
+      
+      if (query.includes('pancake')) {
+        results.push({
+          name: 'Pancakes',
+          image: '🥞',
+          category: 'Breakfast',
+          recipe: [
+            'Mix flour, sugar, baking powder',
+            'Whisk eggs with milk',
+            'Combine wet and dry ingredients',
+            'Heat griddle or pan',
+            'Pour batter and cook until bubbles form',
+            'Flip and cook until golden'
+          ]
+        });
+      }
+      
+      if (query.includes('fried rice') || query.includes('rice')) {
+        results.push({
+          name: 'Fried Rice',
+          image: '🍚',
+          category: 'Main Course',
+          recipe: [
+            'Use day-old cooked rice',
+            'Heat oil in wok or large pan',
+            'Scramble eggs and set aside',
+            'Stir-fry vegetables',
+            'Add rice and break up clumps',
+            'Add soy sauce and mix in eggs'
+          ]
+        });
+      }
+      
+      if (query.includes('soup')) {
+        results.push({
+          name: 'Vegetable Soup',
+          image: '🍲',
+          category: 'Soup',
+          recipe: [
+            'Sauté onions and garlic',
+            'Add chopped vegetables',
+            'Pour in broth or stock',
+            'Season with herbs and spices',
+            'Simmer until vegetables are tender',
+            'Adjust seasoning and serve hot'
+          ]
+        });
+      }
+      
+      if (query.includes('taco')) {
+        results.push({
+          name: 'Tacos',
+          image: '🌮',
+          category: 'Main Course',
+          recipe: [
+            'Warm tortillas',
+            'Cook seasoned meat or beans',
+            'Fill tortillas with filling',
+            'Add lettuce and tomatoes',
+            'Top with cheese and salsa',
+            'Serve immediately'
+          ]
+        });
+      }
+      
+      if (query.includes('noodle')) {
+        results.push({
+          name: 'Stir-Fried Noodles',
+          image: '🍜',
+          category: 'Main Course',
+          recipe: [
+            'Cook noodles according to package',
+            'Heat oil in wok',
+            'Stir-fry vegetables and protein',
+            'Add cooked noodles',
+            'Season with soy sauce',
+            'Toss everything together'
+          ]
+        });
+      }
+      
+      if (query.includes('plantain')) {
+        results.push({
+          name: 'Fried Plantain',
+          image: '🍌',
+          category: 'Side Dish',
+          recipe: [
+            'Peel ripe plantains',
+            'Slice diagonally',
+            'Heat oil in frying pan',
+            'Fry until golden brown',
+            'Flip and fry other side',
+            'Drain on paper towels'
+          ]
+        });
+      }
+      
+      if (query.includes('egg')) {
+        results.push({
+          name: 'Scrambled Eggs',
+          image: '🍳',
+          category: 'Breakfast',
+          recipe: [
+            'Beat eggs with milk',
+            'Season with salt and pepper',
+            'Heat butter in pan',
+            'Pour in egg mixture',
+            'Stir gently as eggs cook',
+            'Remove when still slightly soft'
+          ]
+        });
+      }
+      
+      if (query.includes('salad')) {
+        results.push({
+          name: 'Salad Dressing',
+          image: '🥗',
+          category: 'Condiment',
+          recipe: [
+            'Combine vinegar and mustard',
+            'Slowly whisk in olive oil',
+            'Add minced garlic',
+            'Season with salt and pepper',
+            'Add herbs if desired',
+            'Store in refrigerator'
+          ]
+        });
+      }
+      
+      if (results.length === 0) {
+        results.push({
+          name: 'No Results Found',
+          image: '🔍',
+          category: 'Search',
+          recipe: [
+            'Try searching for: pizza, pasta, cake, cookies, ice cream',
+            'Or: bread, pancakes, smoothie, soup, fried rice',
+            'Or: tacos, noodles, plantain, eggs, salad',
+            'You can also use the ingredient analyzer below!'
+          ]
+        });
+      }
+      
+      setSearchResults(results);
+      setIsSearching(false);
+    }, 1000);
+  };
+
   const handleChatSubmit = () => {
     if (!chatInput.trim()) return;
     
@@ -624,17 +895,73 @@ export default function IngredientMixer() {
           </p>
         </div>
 
+        {/* Search Bar */}
+        <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
+          <div className="flex gap-3">
+            <div className="flex-1 relative">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                placeholder="Search for dishes and snacks recipes... (e.g., pizza, cake, cookies)"
+                className="w-full p-4 pl-12 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:outline-none text-lg"
+                disabled={isSearching}
+              />
+              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-2xl">🔍</div>
+            </div>
+            <button
+              onClick={handleSearch}
+              disabled={isSearching || !searchQuery.trim()}
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 disabled:opacity-50 transition-opacity"
+            >
+              {isSearching ? 'Searching...' : 'Search'}
+            </button>
+          </div>
+          
+          {/* Search Results */}
+          {searchResults.length > 0 && (
+            <div className="mt-6 space-y-4">
+              <div className="flex justify-between items-center">
+                <h3 className="text-xl font-bold text-gray-800">Search Results</h3>
+                <button
+                  onClick={() => { setSearchResults([]); setSearchQuery(''); }}
+                  className="text-gray-600 hover:text-gray-800 text-sm"
+                >
+                  Clear
+                </button>
+              </div>
+              {searchResults.map((item, idx) => (
+                <div key={idx} className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6 border-2 border-purple-200">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="text-6xl">{item.image}</div>
+                    <div>
+                      <h4 className="text-2xl font-bold text-gray-800">{item.name}</h4>
+                      <span className="inline-block bg-purple-200 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                        {item.category}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4">
+                    <h5 className="font-semibold text-gray-800 mb-3">Recipe:</h5>
+                    <ol className="list-decimal list-inside space-y-2">
+                      {item.recipe.map((step, stepIdx) => (
+                        <li key={stepIdx} className="text-gray-700">{step}</li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
         {/* Main Card */}
         <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
           {!inputMethod && !result && (
             <div className="space-y-6">
-              {/* Search Icon */}
-              <div className="flex justify-center mb-6">
-                <div className="text-7xl">🔍</div>
-              </div>
-              
               <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
-                How would you like to add ingredients?
+                Or analyze your ingredients:
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
                 <button
@@ -873,6 +1200,8 @@ export default function IngredientMixer() {
     </div>
   );
 }
+
+
 
 
 
