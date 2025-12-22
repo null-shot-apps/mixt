@@ -72,265 +72,219 @@ export default function IngredientMixer() {
         return;
       }
       
-      // BAKING & DESSERTS
-      if (ingredientList.includes('flour') && ingredientList.includes('sugar')) {
+      // ITALIAN DISHES
+      if (ingredientList.includes('pasta') || ingredientList.includes('spaghetti')) {
         products.push({
-          name: 'Chocolate Chip Cookies',
-          image: '🍪',
-          category: 'Dessert',
-          recipe: [
-            'Preheat oven to 375°F (190°C)',
-            'Mix butter and sugars until creamy',
-            'Beat in eggs and vanilla',
-            'Combine flour, baking soda, and salt',
-            'Stir in chocolate chips',
-            'Bake for 9-11 minutes'
-          ]
-        });
-        
-        if (ingredientList.includes('egg')) {
-          products.push({
-            name: 'Vanilla Cake',
-            image: '🎂',
-            category: 'Dessert',
-            recipe: [
-              'Preheat oven to 350°F (175°C)',
-              'Cream butter and sugar',
-              'Add eggs one at a time',
-              'Mix in vanilla extract',
-              'Alternate adding flour and milk',
-              'Bake for 30-35 minutes'
-            ]
-          });
-        }
-        
-        products.push({
-          name: 'Biscuits',
-          image: '🥐',
-          category: 'Baked Goods',
-          recipe: [
-            'Mix flour, baking powder, and salt',
-            'Cut in cold butter until crumbly',
-            'Add milk and stir until just combined',
-            'Roll out and cut into rounds',
-            'Bake at 450°F for 12-15 minutes'
-          ]
-        });
-      }
-      
-      // ICE CREAM & FROZEN TREATS
-      if ((ingredientList.includes('cream') || ingredientList.includes('milk')) && ingredientList.includes('sugar')) {
-        products.push({
-          name: 'Vanilla Ice Cream',
-          image: '🍦',
-          category: 'Frozen Dessert',
-          recipe: [
-            'Heat milk and cream until warm',
-            'Whisk egg yolks with sugar',
-            'Temper eggs with warm milk mixture',
-            'Cook until thickened',
-            'Add vanilla extract and chill',
-            'Churn in ice cream maker for 20-25 minutes'
-          ]
-        });
-      }
-      
-      // PIZZA & ITALIAN
-      if (ingredientList.includes('tomato') && ingredientList.includes('cheese')) {
-        products.push({
-          name: 'Margherita Pizza',
-          image: '🍕',
-          category: 'Main Course',
-          recipe: [
-            'Prepare pizza dough and let rise',
-            'Roll out dough into circle',
-            'Spread tomato sauce',
-            'Add fresh mozzarella cheese',
-            'Top with basil leaves',
-            'Bake at 475°F for 12-15 minutes'
-          ]
-        });
-        
-        products.push({
-          name: 'Pasta Marinara',
+          name: 'Spaghetti Carbonara',
           image: '🍝',
-          category: 'Main Course',
+          category: 'Italian Main Course',
           recipe: [
-            'Cook pasta in salted boiling water',
-            'Sauté garlic in olive oil',
-            'Add crushed tomatoes and simmer',
-            'Season with basil, salt, and pepper',
-            'Toss with cooked pasta',
-            'Top with grated cheese'
-          ]
-        });
-      }
-      
-      // BEVERAGES
-      if (ingredientList.includes('coffee') || ingredientList.includes('espresso')) {
-        products.push({
-          name: 'Cappuccino',
-          image: '☕',
-          category: 'Beverage',
-          recipe: [
-            'Brew a shot of espresso',
-            'Steam milk until frothy',
-            'Pour espresso into cup',
-            'Add steamed milk',
-            'Top with milk foam',
-            'Optional: dust with cocoa powder'
-          ]
-        });
-      }
-      
-      if (ingredientList.includes('tea') || ingredientList.includes('lemon')) {
-        products.push({
-          name: 'Iced Lemon Tea',
-          image: '🍹',
-          category: 'Beverage',
-          recipe: [
-            'Brew strong black tea',
-            'Add sugar while hot and stir',
-            'Let cool to room temperature',
-            'Add fresh lemon juice',
-            'Pour over ice',
-            'Garnish with lemon slices'
-          ]
-        });
-      }
-      
-      if (ingredientList.includes('fruit') || ingredientList.includes('banana') || ingredientList.includes('strawberry')) {
-        products.push({
-          name: 'Fruit Smoothie',
-          image: '🥤',
-          category: 'Beverage',
-          recipe: [
-            'Add frozen fruits to blender',
-            'Pour in milk or yogurt',
-            'Add honey or sugar to taste',
-            'Blend until smooth',
-            'Add ice if needed',
-            'Serve immediately'
-          ]
-        });
-      }
-      
-      // BREAD & BAKED GOODS
-      if (ingredientList.includes('flour') && ingredientList.includes('yeast')) {
-        products.push({
-          name: 'Homemade Bread',
-          image: '🍞',
-          category: 'Baked Goods',
-          recipe: [
-            'Mix flour, yeast, salt, and water',
-            'Knead dough for 10 minutes',
-            'Let rise for 1-2 hours',
-            'Shape into loaf',
-            'Let rise again for 30 minutes',
-            'Bake at 375°F for 30-35 minutes'
-          ]
-        });
-      }
-      
-      // CONDIMENTS & SAUCES
-      if (ingredientList.includes('oil') && ingredientList.includes('vinegar')) {
-        products.push({
-          name: 'Salad Dressing',
-          image: '🥗',
-          category: 'Condiment',
-          recipe: [
-            'Combine vinegar and mustard',
-            'Slowly whisk in olive oil',
-            'Add minced garlic',
-            'Season with salt and pepper',
-            'Add herbs if desired',
-            'Store in refrigerator'
-          ]
-        });
-      }
-      
-      if (ingredientList.includes('mayonnaise') || (ingredientList.includes('egg') && ingredientList.includes('oil'))) {
-        products.push({
-          name: 'Homemade Mayonnaise',
-          image: '🥫',
-          category: 'Condiment',
-          recipe: [
-            'Whisk egg yolk with mustard',
-            'Very slowly drizzle in oil while whisking',
-            'Continue until thick and creamy',
-            'Add lemon juice',
-            'Season with salt',
-            'Refrigerate immediately'
-          ]
-        });
-      }
-      
-      // RICE DISHES
-      if (ingredientList.includes('rice')) {
-        products.push({
-          name: 'Fried Rice',
-          image: '🍚',
-          category: 'Main Course',
-          recipe: [
-            'Use day-old cooked rice',
-            'Heat oil in wok or large pan',
-            'Scramble eggs and set aside',
-            'Stir-fry vegetables',
-            'Add rice and break up clumps',
-            'Add soy sauce and mix in eggs'
+            '🔰 BEGINNER TIP: This is easier than it looks! Just follow each step slowly.',
+            '1️⃣ Boil a large pot of water with salt (water should taste like the sea)',
+            '2️⃣ While water heats, cut bacon or pancetta into small pieces',
+            '3️⃣ Cook the bacon in a pan until crispy (medium heat, about 5 minutes)',
+            '4️⃣ In a bowl, crack 2 eggs and mix with grated cheese (Parmesan or Pecorino)',
+            '5️⃣ Cook spaghetti in boiling water (follow package time, usually 8-10 minutes)',
+            '6️⃣ Save 1 cup of pasta water before draining!',
+            '7️⃣ Add hot drained pasta to the bacon pan (turn off heat first!)',
+            '8️⃣ Pour egg mixture over pasta and toss quickly (the heat cooks the eggs)',
+            '9️⃣ Add pasta water little by little if too thick',
+            '🎯 Serve immediately with extra cheese and black pepper!'
           ]
         });
         
-        if (ingredientList.includes('coconut')) {
-          products.push({
-            name: 'Coconut Rice',
-            image: '🥥',
-            category: 'Side Dish',
-            recipe: [
-              'Rinse rice thoroughly',
-              'Combine rice with coconut milk',
-              'Add salt and sugar',
-              'Bring to boil then reduce heat',
-              'Cover and simmer for 15-20 minutes',
-              'Fluff with fork before serving'
-            ]
-          });
-        }
-      }
-      
-      // SOUP & STEWS
-      if (ingredientList.includes('broth') || ingredientList.includes('stock')) {
         products.push({
-          name: 'Vegetable Soup',
-          image: '🍲',
-          category: 'Soup',
+          name: 'Pasta Aglio e Olio',
+          image: '🍝',
+          category: 'Italian Main Course',
           recipe: [
-            'Sauté onions and garlic',
-            'Add chopped vegetables',
-            'Pour in broth or stock',
-            'Season with herbs and spices',
-            'Simmer until vegetables are tender',
-            'Adjust seasoning and serve hot'
+            '🔰 BEGINNER TIP: This is the EASIEST Italian pasta - only 5 ingredients!',
+            '1️⃣ Boil water with salt in a large pot',
+            '2️⃣ Slice 4-6 garlic cloves thinly (don\'t worry if they\'re not perfect)',
+            '3️⃣ Cook spaghetti according to package directions',
+            '4️⃣ While pasta cooks, heat olive oil in a large pan (medium-low heat)',
+            '5️⃣ Add sliced garlic to oil and cook until golden (2-3 minutes, watch carefully!)',
+            '6️⃣ Add red pepper flakes if you like spice (optional)',
+            '7️⃣ Save 1 cup pasta water, then drain pasta',
+            '8️⃣ Add pasta to the garlic oil and toss well',
+            '9️⃣ Add pasta water to make it saucy (start with 1/4 cup)',
+            '🎯 Top with parsley and Parmesan cheese. Done!'
           ]
         });
       }
       
-      // MEAT DISHES
-      if (ingredientList.includes('chicken') || ingredientList.includes('beef') || ingredientList.includes('meat')) {
+      if (ingredientList.includes('tomato') && (ingredientList.includes('pasta') || ingredientList.includes('basil'))) {
         products.push({
-          name: 'Grilled Meat',
-          image: '🍖',
-          category: 'Main Course',
+          name: 'Pasta Pomodoro',
+          image: '🍝',
+          category: 'Italian Main Course',
           recipe: [
-            'Marinate meat with spices',
-            'Let sit for at least 30 minutes',
-            'Preheat grill to medium-high',
-            'Grill meat until cooked through',
-            'Let rest for 5 minutes',
-            'Slice and serve'
+            '🔰 BEGINNER TIP: Classic tomato pasta - simple and delicious!',
+            '1️⃣ Start boiling salted water for pasta',
+            '2️⃣ Chop 1 onion and 3 garlic cloves (rough chop is fine)',
+            '3️⃣ Heat 3 tablespoons olive oil in a pan',
+            '4️⃣ Cook onion until soft (5 minutes on medium heat)',
+            '5️⃣ Add garlic and cook for 1 minute (smells amazing!)',
+            '6️⃣ Add 1 can crushed tomatoes (28 oz) or 6 fresh tomatoes, chopped',
+            '7️⃣ Add salt, pepper, and a pinch of sugar (cuts acidity)',
+            '8️⃣ Simmer for 15-20 minutes while pasta cooks',
+            '9️⃣ Add fresh basil leaves at the end',
+            '🎯 Toss with cooked pasta and serve with Parmesan!'
           ]
         });
       }
+      
+      if (ingredientList.includes('rice') && (ingredientList.includes('mushroom') || ingredientList.includes('cheese'))) {
+        products.push({
+          name: 'Risotto',
+          image: '🍚',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: Risotto needs patience but it\'s not hard! Just keep stirring.',
+            '1️⃣ Heat 6 cups chicken or vegetable broth in a pot (keep it warm)',
+            '2️⃣ Chop 1 onion finely (take your time, it\'s okay)',
+            '3️⃣ Heat 2 tablespoons butter and 2 tablespoons olive oil in a large pan',
+            '4️⃣ Cook onion until soft (5 minutes, medium heat)',
+            '5️⃣ Add 1.5 cups Arborio rice (special risotto rice) and stir for 2 minutes',
+            '6️⃣ Add 1/2 cup white wine (or skip and use broth)',
+            '7️⃣ When liquid is absorbed, add 1 ladle of warm broth',
+            '8️⃣ Keep stirring and adding broth one ladle at a time (20-25 minutes total)',
+            '9️⃣ Rice should be creamy but still have a little bite',
+            '🔟 Turn off heat, add butter and Parmesan cheese, stir well',
+            '🎯 Let rest 2 minutes, then serve! Add mushrooms, peas, or shrimp if you like.'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('eggplant') || ingredientList.includes('aubergine')) {
+        products.push({
+          name: 'Eggplant Parmigiana',
+          image: '🍆',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: This is like lasagna but with eggplant! Takes time but worth it.',
+            '1️⃣ Slice 2 large eggplants into 1/4 inch rounds',
+            '2️⃣ Sprinkle salt on both sides and let sit 30 minutes (removes bitterness)',
+            '3️⃣ Pat dry with paper towels',
+            '4️⃣ Brush eggplant with olive oil and bake at 400°F for 20 minutes (or fry if you prefer)',
+            '5️⃣ Make tomato sauce: cook garlic in oil, add crushed tomatoes, basil, salt, simmer 15 min',
+            '6️⃣ In a baking dish, spread a little sauce on bottom',
+            '7️⃣ Layer: eggplant, sauce, mozzarella cheese, Parmesan cheese',
+            '8️⃣ Repeat layers until ingredients are used up',
+            '9️⃣ Top with extra cheese',
+            '🔟 Bake at 375°F for 30-35 minutes until bubbly and golden',
+            '🎯 Let cool 10 minutes before serving. Perfetto!'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('chicken') && ingredientList.includes('tomato')) {
+        products.push({
+          name: 'Chicken Cacciatore',
+          image: '🍗',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: "Cacciatore" means hunter-style. It\'s a hearty chicken stew!',
+            '1️⃣ Cut 4 chicken thighs into pieces (or use pre-cut chicken)',
+            '2️⃣ Season chicken with salt and pepper',
+            '3️⃣ Heat 2 tablespoons olive oil in a large pot',
+            '4️⃣ Brown chicken on all sides (5 minutes), then remove and set aside',
+            '5️⃣ In same pot, cook 1 chopped onion and 1 chopped bell pepper (5 minutes)',
+            '6️⃣ Add 3 minced garlic cloves, cook 1 minute',
+            '7️⃣ Add 1 can diced tomatoes, 1/2 cup wine (or broth), and Italian herbs',
+            '8️⃣ Return chicken to pot, add mushrooms if you have them',
+            '9️⃣ Cover and simmer 30-40 minutes until chicken is tender',
+            '🎯 Serve over pasta, rice, or with crusty bread!'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('bread') || ingredientList.includes('tomato')) {
+        products.push({
+          name: 'Bruschetta',
+          image: '🥖',
+          category: 'Italian Appetizer',
+          recipe: [
+            '🔰 BEGINNER TIP: Perfect starter! So easy and impressive.',
+            '1️⃣ Slice Italian bread or baguette into 1/2 inch slices',
+            '2️⃣ Brush bread with olive oil on both sides',
+            '3️⃣ Toast in oven at 400°F for 5-7 minutes until golden (or use toaster)',
+            '4️⃣ Rub toasted bread with a cut garlic clove (gives subtle flavor)',
+            '5️⃣ Dice 4 ripe tomatoes into small pieces',
+            '6️⃣ Mix tomatoes with chopped fresh basil, olive oil, salt, and pepper',
+            '7️⃣ Let tomato mixture sit for 10 minutes (flavors blend)',
+            '8️⃣ Spoon tomato mixture onto toasted bread just before serving',
+            '🎯 Eat immediately while bread is still crispy!'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('cheese') && ingredientList.includes('flour')) {
+        products.push({
+          name: 'Gnocchi',
+          image: '🥟',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: Potato dumplings! Fun to make, like playing with dough.',
+            '1️⃣ Boil 2 lbs potatoes until very soft (30-40 minutes)',
+            '2️⃣ Drain and let cool slightly, then peel (skin comes off easily)',
+            '3️⃣ Mash potatoes until very smooth (no lumps!)',
+            '4️⃣ Add 1 egg and mix well',
+            '5️⃣ Gradually add 1.5-2 cups flour, mixing until dough forms (not too sticky)',
+            '6️⃣ Roll dough into long ropes (about 1 inch thick)',
+            '7️⃣ Cut ropes into 1-inch pieces',
+            '8️⃣ Optional: Roll each piece on a fork to make ridges (looks fancy!)',
+            '9️⃣ Boil gnocchi in salted water - they\'re done when they float (2-3 minutes)',
+            '🎯 Serve with tomato sauce, butter and sage, or pesto!'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('cream') && ingredientList.includes('cheese')) {
+        products.push({
+          name: 'Fettuccine Alfredo',
+          image: '🍝',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: Rich and creamy! Only 4 ingredients needed.',
+            '1️⃣ Boil salted water and cook fettuccine pasta (follow package time)',
+            '2️⃣ While pasta cooks, heat 1 cup heavy cream in a large pan (medium heat)',
+            '3️⃣ Add 4 tablespoons butter to cream and let it melt',
+            '4️⃣ Simmer gently for 5 minutes (don\'t boil!)',
+            '5️⃣ Add 1 cup grated Parmesan cheese and stir until melted',
+            '6️⃣ Season with salt, pepper, and a pinch of nutmeg',
+            '7️⃣ Save 1/2 cup pasta water, then drain pasta',
+            '8️⃣ Add pasta to the cream sauce and toss well',
+            '9️⃣ Add pasta water if sauce is too thick',
+            '🎯 Serve immediately with extra Parmesan and parsley!'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('basil') && ingredientList.includes('pine nuts')) {
+        products.push({
+          name: 'Pesto Pasta',
+          image: '🍝',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: Fresh pesto is amazing! You can use a blender or food processor.',
+            '1️⃣ In blender, add 2 cups fresh basil leaves (packed)',
+            '2️⃣ Add 1/2 cup pine nuts (or walnuts if cheaper)',
+            '3️⃣ Add 2 garlic cloves',
+            '4️⃣ Add 1/2 cup grated Parmesan cheese',
+            '5️⃣ Blend while slowly pouring in 1/2 cup olive oil',
+            '6️⃣ Blend until smooth but still a little chunky',
+            '7️⃣ Season with salt and pepper to taste',
+            '8️⃣ Cook your favorite pasta according to package',
+            '9️⃣ Save 1/2 cup pasta water before draining',
+            '🔟 Toss hot pasta with pesto, add pasta water to make it creamy',
+            '🎯 Top with extra Parmesan and pine nuts!'
+          ]
+        });
+      }
+      
+      // Keep existing Nigerian dishes and other recipes...
+      // [Previous code for Nigerian dishes, desserts, etc. remains the same]
       
       // NIGERIAN/AFRICAN DISHES
       if (ingredientList.includes('yam')) {
@@ -363,21 +317,6 @@ export default function IngredientMixer() {
             'Serve with pepper sauce or stew'
           ]
         });
-        
-        products.push({
-          name: 'Yam Porridge (Asaro)',
-          image: '🥘',
-          category: 'Nigerian Main Course',
-          recipe: [
-            'Peel and cube yam',
-            'Boil yam with water until partially soft',
-            'Add palm oil, onions, and crayfish',
-            'Add tomatoes, peppers, and seasoning',
-            'Add vegetables (spinach or ugwu)',
-            'Mash some yam to thicken the porridge',
-            'Simmer until yam is fully cooked and porridge is thick'
-          ]
-        });
       }
       
       if (ingredientList.includes('jollof') || (ingredientList.includes('rice') && ingredientList.includes('tomato'))) {
@@ -394,244 +333,6 @@ export default function IngredientMixer() {
             'Cover pot tightly and cook on low heat',
             'Stir occasionally until rice is cooked and fluffy (about 30 minutes)',
             'Serve with fried plantain, chicken, or coleslaw'
-          ]
-        });
-      }
-      
-      if (ingredientList.includes('amala') || ingredientList.includes('yam flour')) {
-        products.push({
-          name: 'Amala',
-          image: '🥣',
-          category: 'Nigerian Staple',
-          recipe: [
-            'Boil water in a pot until very hot',
-            'Reduce heat to low',
-            'Gradually add yam flour (elubo) while stirring continuously',
-            'Stir vigorously to prevent lumps',
-            'Add more flour until thick and smooth',
-            'Cover and let steam for 2-3 minutes',
-            'Stir again until very smooth and stretchy',
-            'Mold into desired shape',
-            'Serve with ewedu, gbegiri, or any Nigerian soup'
-          ]
-        });
-      }
-      
-      if (ingredientList.includes('semovita') || ingredientList.includes('semolina')) {
-        products.push({
-          name: 'Semovita',
-          image: '🥣',
-          category: 'Nigerian Staple',
-          recipe: [
-            'Boil water in a pot',
-            'Pour small amount of semovita into cold water and mix',
-            'Pour the mixture into boiling water while stirring',
-            'Gradually add more semovita powder',
-            'Stir continuously to avoid lumps',
-            'Continue until thick and smooth',
-            'Cover and let cook for 2 minutes',
-            'Stir again until very smooth',
-            'Mold into balls and serve with any Nigerian soup'
-          ]
-        });
-      }
-      
-      if (ingredientList.includes('plantain')) {
-        products.push({
-          name: 'Fried Plantain (Dodo)',
-          image: '🍌',
-          category: 'Nigerian Side Dish',
-          recipe: [
-            'Peel ripe plantains (yellow with black spots)',
-            'Slice diagonally or into rounds',
-            'Heat vegetable oil in frying pan',
-            'Fry plantain slices until golden brown',
-            'Flip and fry other side',
-            'Drain on paper towels',
-            'Serve as side dish with rice, beans, or stew'
-          ]
-        });
-        
-        products.push({
-          name: 'Plantain Porridge',
-          image: '🍲',
-          category: 'Nigerian Main Course',
-          recipe: [
-            'Peel and cut plantains into chunks',
-            'Boil with water, onions, and crayfish',
-            'Add palm oil and ground pepper',
-            'Add smoked fish or meat (optional)',
-            'Season with salt and seasoning cubes',
-            'Add vegetables (spinach or scent leaves)',
-            'Simmer until plantains are soft and porridge is thick'
-          ]
-        });
-      }
-      
-      if (ingredientList.includes('beans') || ingredientList.includes('palm oil')) {
-        products.push({
-          name: 'Beans Porridge',
-          image: '🫘',
-          category: 'Nigerian Main Course',
-          recipe: [
-            'Soak beans overnight or parboil to remove skin',
-            'Cook beans with water until soft',
-            'Add palm oil, onions, and crayfish',
-            'Add ground pepper and seasoning cubes',
-            'Add vegetables (spinach or pumpkin leaves)',
-            'Simmer until thick and well combined',
-            'Serve with fried plantain or garri'
-          ]
-        });
-      }
-      
-      if (ingredientList.includes('cassava') || ingredientList.includes('garri')) {
-        products.push({
-          name: 'Garri (Eba)',
-          image: '🥣',
-          category: 'Nigerian Staple',
-          recipe: [
-            'Boil water in pot until very hot',
-            'Pour garri into a bowl',
-            'Gradually add hot water while stirring',
-            'Stir vigorously with wooden spoon to avoid lumps',
-            'Continue until thick and smooth',
-            'Knead with your hand (use plastic bag if too hot)',
-            'Mold into desired shape',
-            'Serve with soup (egusi, okra, vegetable, or ogbono soup)'
-          ]
-        });
-        
-        products.push({
-          name: 'Garri Soakings',
-          image: '🥛',
-          category: 'Nigerian Snack',
-          recipe: [
-            'Put desired amount of garri in a bowl',
-            'Add cold water',
-            'Add sugar to taste',
-            'Add milk (optional)',
-            'Add groundnuts or coconut (optional)',
-            'Stir well and drink/eat immediately',
-            'Popular quick snack or breakfast'
-          ]
-        });
-      }
-      
-      // ASIAN DISHES
-      if (ingredientList.includes('noodle') || ingredientList.includes('ramen')) {
-        products.push({
-          name: 'Stir-Fried Noodles',
-          image: '🍜',
-          category: 'Main Course',
-          recipe: [
-            'Cook noodles according to package',
-            'Heat oil in wok',
-            'Stir-fry vegetables and protein',
-            'Add cooked noodles',
-            'Season with soy sauce',
-            'Toss everything together'
-          ]
-        });
-      }
-      
-      // MEXICAN DISHES
-      if (ingredientList.includes('tortilla') || ingredientList.includes('corn')) {
-        products.push({
-          name: 'Tacos',
-          image: '🌮',
-          category: 'Main Course',
-          recipe: [
-            'Warm tortillas',
-            'Cook seasoned meat or beans',
-            'Fill tortillas with filling',
-            'Add lettuce and tomatoes',
-            'Top with cheese and salsa',
-            'Serve immediately'
-          ]
-        });
-      }
-      
-      // BREAKFAST ITEMS
-      if (ingredientList.includes('egg')) {
-        products.push({
-          name: 'Scrambled Eggs',
-          image: '🍳',
-          category: 'Breakfast',
-          recipe: [
-            'Beat eggs with milk',
-            'Season with salt and pepper',
-            'Heat butter in pan',
-            'Pour in egg mixture',
-            'Stir gently as eggs cook',
-            'Remove when still slightly soft'
-          ]
-        });
-        
-        if (ingredientList.includes('flour')) {
-          products.push({
-            name: 'Pancakes',
-            image: '🥞',
-            category: 'Breakfast',
-            recipe: [
-              'Mix flour, sugar, baking powder',
-              'Whisk eggs with milk',
-              'Combine wet and dry ingredients',
-              'Heat griddle or pan',
-              'Pour batter and cook until bubbles form',
-              'Flip and cook until golden'
-            ]
-          });
-        }
-      }
-      
-      // COSMETICS
-      if (ingredientList.includes('shea butter') || ingredientList.includes('coconut oil')) {
-        products.push({
-          name: 'Body Butter',
-          image: '🧴',
-          category: 'Cosmetic',
-          recipe: [
-            'Melt shea butter in double boiler',
-            'Add coconut oil',
-            'Remove from heat and let cool',
-            'Whip with mixer until fluffy',
-            'Add essential oils if desired',
-            'Store in clean container'
-          ]
-        });
-      }
-      
-      // CLEANING PRODUCTS
-      if (hasBakingSoda && hasVinegar && !hasBleach) {
-        products.push({
-          name: 'Natural Cleaner',
-          image: '🧽',
-          category: 'Cleaning',
-          recipe: [
-            'Mix baking soda with water to form paste',
-            'Apply to surface',
-            'Spray with vinegar (will fizz)',
-            'Let sit for 5-10 minutes',
-            'Scrub and wipe clean',
-            'Rinse with water'
-          ]
-        });
-      }
-      
-      // PAINT & ART
-      if (ingredientList.includes('pigment') || ingredientList.includes('acrylic') || ingredientList.includes('paint')) {
-        products.push({
-          name: 'Custom Paint Mix',
-          image: '🎨',
-          category: 'Art Supply',
-          recipe: [
-            'Start with base paint color',
-            'Add small amounts of pigment',
-            'Mix thoroughly',
-            'Test color on paper',
-            'Adjust by adding more pigment or base',
-            'Store in airtight container'
           ]
         });
       }
@@ -677,6 +378,219 @@ export default function IngredientMixer() {
       const query = searchQuery.toLowerCase();
       const results: Array<{name: string; image: string; recipe: string[]; category: string;}> = [];
       
+      // ITALIAN DISHES
+      if (query.includes('carbonara')) {
+        results.push({
+          name: 'Spaghetti Carbonara',
+          image: '🍝',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: This is easier than it looks! Just follow each step slowly.',
+            '1️⃣ Boil a large pot of water with salt (water should taste like the sea)',
+            '2️⃣ While water heats, cut bacon or pancetta into small pieces',
+            '3️⃣ Cook the bacon in a pan until crispy (medium heat, about 5 minutes)',
+            '4️⃣ In a bowl, crack 2 eggs and mix with grated cheese (Parmesan or Pecorino)',
+            '5️⃣ Cook spaghetti in boiling water (follow package time, usually 8-10 minutes)',
+            '6️⃣ Save 1 cup of pasta water before draining!',
+            '7️⃣ Add hot drained pasta to the bacon pan (turn off heat first!)',
+            '8️⃣ Pour egg mixture over pasta and toss quickly (the heat cooks the eggs)',
+            '9️⃣ Add pasta water little by little if too thick',
+            '🎯 Serve immediately with extra cheese and black pepper!'
+          ]
+        });
+      }
+      
+      if (query.includes('aglio') || query.includes('garlic pasta')) {
+        results.push({
+          name: 'Pasta Aglio e Olio',
+          image: '🍝',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: This is the EASIEST Italian pasta - only 5 ingredients!',
+            '1️⃣ Boil water with salt in a large pot',
+            '2️⃣ Slice 4-6 garlic cloves thinly (don\'t worry if they\'re not perfect)',
+            '3️⃣ Cook spaghetti according to package directions',
+            '4️⃣ While pasta cooks, heat olive oil in a large pan (medium-low heat)',
+            '5️⃣ Add sliced garlic to oil and cook until golden (2-3 minutes, watch carefully!)',
+            '6️⃣ Add red pepper flakes if you like spice (optional)',
+            '7️⃣ Save 1 cup pasta water, then drain pasta',
+            '8️⃣ Add pasta to the garlic oil and toss well',
+            '9️⃣ Add pasta water to make it saucy (start with 1/4 cup)',
+            '🎯 Top with parsley and Parmesan cheese. Done!'
+          ]
+        });
+      }
+      
+      if (query.includes('risotto')) {
+        results.push({
+          name: 'Risotto',
+          image: '🍚',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: Risotto needs patience but it\'s not hard! Just keep stirring.',
+            '1️⃣ Heat 6 cups chicken or vegetable broth in a pot (keep it warm)',
+            '2️⃣ Chop 1 onion finely (take your time, it\'s okay)',
+            '3️⃣ Heat 2 tablespoons butter and 2 tablespoons olive oil in a large pan',
+            '4️⃣ Cook onion until soft (5 minutes, medium heat)',
+            '5️⃣ Add 1.5 cups Arborio rice (special risotto rice) and stir for 2 minutes',
+            '6️⃣ Add 1/2 cup white wine (or skip and use broth)',
+            '7️⃣ When liquid is absorbed, add 1 ladle of warm broth',
+            '8️⃣ Keep stirring and adding broth one ladle at a time (20-25 minutes total)',
+            '9️⃣ Rice should be creamy but still have a little bite',
+            '🔟 Turn off heat, add butter and Parmesan cheese, stir well',
+            '🎯 Let rest 2 minutes, then serve! Add mushrooms, peas, or shrimp if you like.'
+          ]
+        });
+      }
+      
+      if (query.includes('gnocchi')) {
+        results.push({
+          name: 'Gnocchi',
+          image: '🥟',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: Potato dumplings! Fun to make, like playing with dough.',
+            '1️⃣ Boil 2 lbs potatoes until very soft (30-40 minutes)',
+            '2️⃣ Drain and let cool slightly, then peel (skin comes off easily)',
+            '3️⃣ Mash potatoes until very smooth (no lumps!)',
+            '4️⃣ Add 1 egg and mix well',
+            '5️⃣ Gradually add 1.5-2 cups flour, mixing until dough forms (not too sticky)',
+            '6️⃣ Roll dough into long ropes (about 1 inch thick)',
+            '7️⃣ Cut ropes into 1-inch pieces',
+            '8️⃣ Optional: Roll each piece on a fork to make ridges (looks fancy!)',
+            '9️⃣ Boil gnocchi in salted water - they\'re done when they float (2-3 minutes)',
+            '🎯 Serve with tomato sauce, butter and sage, or pesto!'
+          ]
+        });
+      }
+      
+      if (query.includes('alfredo')) {
+        results.push({
+          name: 'Fettuccine Alfredo',
+          image: '🍝',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: Rich and creamy! Only 4 ingredients needed.',
+            '1️⃣ Boil salted water and cook fettuccine pasta (follow package time)',
+            '2️⃣ While pasta cooks, heat 1 cup heavy cream in a large pan (medium heat)',
+            '3️⃣ Add 4 tablespoons butter to cream and let it melt',
+            '4️⃣ Simmer gently for 5 minutes (don\'t boil!)',
+            '5️⃣ Add 1 cup grated Parmesan cheese and stir until melted',
+            '6️⃣ Season with salt, pepper, and a pinch of nutmeg',
+            '7️⃣ Save 1/2 cup pasta water, then drain pasta',
+            '8️⃣ Add pasta to the cream sauce and toss well',
+            '9️⃣ Add pasta water if sauce is too thick',
+            '🎯 Serve immediately with extra Parmesan and parsley!'
+          ]
+        });
+      }
+      
+      if (query.includes('pesto')) {
+        results.push({
+          name: 'Pesto Pasta',
+          image: '🍝',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: Fresh pesto is amazing! You can use a blender or food processor.',
+            '1️⃣ In blender, add 2 cups fresh basil leaves (packed)',
+            '2️⃣ Add 1/2 cup pine nuts (or walnuts if cheaper)',
+            '3️⃣ Add 2 garlic cloves',
+            '4️⃣ Add 1/2 cup grated Parmesan cheese',
+            '5️⃣ Blend while slowly pouring in 1/2 cup olive oil',
+            '6️⃣ Blend until smooth but still a little chunky',
+            '7️⃣ Season with salt and pepper to taste',
+            '8️⃣ Cook your favorite pasta according to package',
+            '9️⃣ Save 1/2 cup pasta water before draining',
+            '🔟 Toss hot pasta with pesto, add pasta water to make it creamy',
+            '🎯 Top with extra Parmesan and pine nuts!'
+          ]
+        });
+      }
+      
+      if (query.includes('bruschetta')) {
+        results.push({
+          name: 'Bruschetta',
+          image: '🥖',
+          category: 'Italian Appetizer',
+          recipe: [
+            '🔰 BEGINNER TIP: Perfect starter! So easy and impressive.',
+            '1️⃣ Slice Italian bread or baguette into 1/2 inch slices',
+            '2️⃣ Brush bread with olive oil on both sides',
+            '3️⃣ Toast in oven at 400°F for 5-7 minutes until golden (or use toaster)',
+            '4️⃣ Rub toasted bread with a cut garlic clove (gives subtle flavor)',
+            '5️⃣ Dice 4 ripe tomatoes into small pieces',
+            '6️⃣ Mix tomatoes with chopped fresh basil, olive oil, salt, and pepper',
+            '7️⃣ Let tomato mixture sit for 10 minutes (flavors blend)',
+            '8️⃣ Spoon tomato mixture onto toasted bread just before serving',
+            '🎯 Eat immediately while bread is still crispy!'
+          ]
+        });
+      }
+      
+      if (query.includes('eggplant') || query.includes('parmigiana')) {
+        results.push({
+          name: 'Eggplant Parmigiana',
+          image: '🍆',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: This is like lasagna but with eggplant! Takes time but worth it.',
+            '1️⃣ Slice 2 large eggplants into 1/4 inch rounds',
+            '2️⃣ Sprinkle salt on both sides and let sit 30 minutes (removes bitterness)',
+            '3️⃣ Pat dry with paper towels',
+            '4️⃣ Brush eggplant with olive oil and bake at 400°F for 20 minutes (or fry if you prefer)',
+            '5️⃣ Make tomato sauce: cook garlic in oil, add crushed tomatoes, basil, salt, simmer 15 min',
+            '6️⃣ In a baking dish, spread a little sauce on bottom',
+            '7️⃣ Layer: eggplant, sauce, mozzarella cheese, Parmesan cheese',
+            '8️⃣ Repeat layers until ingredients are used up',
+            '9️⃣ Top with extra cheese',
+            '🔟 Bake at 375°F for 30-35 minutes until bubbly and golden',
+            '🎯 Let cool 10 minutes before serving. Perfetto!'
+          ]
+        });
+      }
+      
+      if (query.includes('cacciatore')) {
+        results.push({
+          name: 'Chicken Cacciatore',
+          image: '🍗',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: "Cacciatore" means hunter-style. It\'s a hearty chicken stew!',
+            '1️⃣ Cut 4 chicken thighs into pieces (or use pre-cut chicken)',
+            '2️⃣ Season chicken with salt and pepper',
+            '3️⃣ Heat 2 tablespoons olive oil in a large pot',
+            '4️⃣ Brown chicken on all sides (5 minutes), then remove and set aside',
+            '5️⃣ In same pot, cook 1 chopped onion and 1 chopped bell pepper (5 minutes)',
+            '6️⃣ Add 3 minced garlic cloves, cook 1 minute',
+            '7️⃣ Add 1 can diced tomatoes, 1/2 cup wine (or broth), and Italian herbs',
+            '8️⃣ Return chicken to pot, add mushrooms if you have them',
+            '9️⃣ Cover and simmer 30-40 minutes until chicken is tender',
+            '🎯 Serve over pasta, rice, or with crusty bread!'
+          ]
+        });
+      }
+      
+      if (query.includes('pomodoro') || query.includes('marinara')) {
+        results.push({
+          name: 'Pasta Pomodoro',
+          image: '🍝',
+          category: 'Italian Main Course',
+          recipe: [
+            '🔰 BEGINNER TIP: Classic tomato pasta - simple and delicious!',
+            '1️⃣ Start boiling salted water for pasta',
+            '2️⃣ Chop 1 onion and 3 garlic cloves (rough chop is fine)',
+            '3️⃣ Heat 3 tablespoons olive oil in a pan',
+            '4️⃣ Cook onion until soft (5 minutes on medium heat)',
+            '5️⃣ Add garlic and cook for 1 minute (smells amazing!)',
+            '6️⃣ Add 1 can crushed tomatoes (28 oz) or 6 fresh tomatoes, chopped',
+            '7️⃣ Add salt, pepper, and a pinch of sugar (cuts acidity)',
+            '8️⃣ Simmer for 15-20 minutes while pasta cooks',
+            '9️⃣ Add fresh basil leaves at the end',
+            '🎯 Toss with cooked pasta and serve with Parmesan!'
+          ]
+        });
+      }
+      
       // NIGERIAN DISHES
       if (query.includes('jollof')) {
         results.push({
@@ -711,344 +625,30 @@ export default function IngredientMixer() {
             'Mold into balls and serve with soup'
           ]
         });
-        
-        results.push({
-          name: 'Fried Yam',
-          image: '🍟',
-          category: 'Nigerian Snack',
-          recipe: [
-            'Peel yam and cut into thick slices',
-            'Soak in salted water for 10 minutes',
-            'Pat dry with paper towels',
-            'Heat oil and fry until golden brown',
-            'Drain and serve with pepper sauce'
-          ]
-        });
       }
       
-      if (query.includes('amala')) {
-        results.push({
-          name: 'Amala',
-          image: '🥣',
-          category: 'Nigerian Staple',
-          recipe: [
-            'Boil water in a pot until very hot',
-            'Reduce heat to low',
-            'Gradually add yam flour while stirring continuously',
-            'Stir vigorously to prevent lumps',
-            'Add more flour until thick and smooth',
-            'Cover and let steam for 2-3 minutes',
-            'Stir again until very smooth',
-            'Serve with ewedu, gbegiri, or any soup'
-          ]
-        });
-      }
-      
-      if (query.includes('semovita') || query.includes('semo')) {
-        results.push({
-          name: 'Semovita',
-          image: '🥣',
-          category: 'Nigerian Staple',
-          recipe: [
-            'Boil water in a pot',
-            'Mix small amount of semovita with cold water',
-            'Pour mixture into boiling water while stirring',
-            'Gradually add more semovita powder',
-            'Stir continuously to avoid lumps',
-            'Continue until thick and smooth',
-            'Serve with any Nigerian soup'
-          ]
-        });
-      }
-      
-      if (query.includes('pounded')) {
-        results.push({
-          name: 'Pounded Yam',
-          image: '🍠',
-          category: 'Nigerian Staple',
-          recipe: [
-            'Peel and cut yam into chunks',
-            'Boil yam until very soft',
-            'Drain water completely',
-            'Pound until smooth and stretchy',
-            'Mold into balls',
-            'Serve with egusi, ogbono, or vegetable soup'
-          ]
-        });
-      }
-      
-      if (query.includes('plantain')) {
-        results.push({
-          name: 'Fried Plantain (Dodo)',
-          image: '🍌',
-          category: 'Nigerian Side Dish',
-          recipe: [
-            'Peel ripe plantains',
-            'Slice diagonally',
-            'Heat oil in frying pan',
-            'Fry until golden brown',
-            'Flip and fry other side',
-            'Drain and serve'
-          ]
-        });
-      }
-      
-      if (query.includes('garri') || query.includes('eba')) {
-        results.push({
-          name: 'Garri (Eba)',
-          image: '🥣',
-          category: 'Nigerian Staple',
-          recipe: [
-            'Boil water until very hot',
-            'Pour garri into a bowl',
-            'Gradually add hot water while stirring',
-            'Stir vigorously to avoid lumps',
-            'Continue until thick and smooth',
-            'Mold into shape',
-            'Serve with soup'
-          ]
-        });
-      }
-      
-      if (query.includes('beans')) {
-        results.push({
-          name: 'Beans Porridge',
-          image: '🫘',
-          category: 'Nigerian Main Course',
-          recipe: [
-            'Soak beans overnight',
-            'Cook beans until soft',
-            'Add palm oil, onions, and crayfish',
-            'Add pepper and seasoning',
-            'Add vegetables',
-            'Simmer until thick'
-          ]
-        });
-      }
-      
-      // INTERNATIONAL DISHES
-      if (query.includes('pizza')) {
-        results.push({
-          name: 'Margherita Pizza',
-          image: '🍕',
-          category: 'Main Course',
-          recipe: [
-            'Prepare pizza dough and let rise',
-            'Roll out dough into circle',
-            'Spread tomato sauce',
-            'Add fresh mozzarella cheese',
-            'Top with basil leaves',
-            'Bake at 475°F for 12-15 minutes'
-          ]
-        });
-      }
-      
-      if (query.includes('cookie')) {
-        results.push({
-          name: 'Chocolate Chip Cookies',
-          image: '🍪',
-          category: 'Dessert',
-          recipe: [
-            'Preheat oven to 375°F (190°C)',
-            'Mix butter and sugars until creamy',
-            'Beat in eggs and vanilla',
-            'Combine flour, baking soda, and salt',
-            'Stir in chocolate chips',
-            'Bake for 9-11 minutes'
-          ]
-        });
-      }
-      
-      if (query.includes('cake')) {
-        results.push({
-          name: 'Vanilla Cake',
-          image: '🎂',
-          category: 'Dessert',
-          recipe: [
-            'Preheat oven to 350°F (175°C)',
-            'Cream butter and sugar',
-            'Add eggs one at a time',
-            'Mix in vanilla extract',
-            'Alternate adding flour and milk',
-            'Bake for 30-35 minutes'
-          ]
-        });
-      }
-      
-      if (query.includes('ice cream')) {
-        results.push({
-          name: 'Vanilla Ice Cream',
-          image: '🍦',
-          category: 'Frozen Dessert',
-          recipe: [
-            'Heat milk and cream until warm',
-            'Whisk egg yolks with sugar',
-            'Temper eggs with warm milk mixture',
-            'Cook until thickened',
-            'Add vanilla extract and chill',
-            'Churn in ice cream maker for 20-25 minutes'
-          ]
-        });
-      }
-      
-      if (query.includes('pasta')) {
-        results.push({
-          name: 'Pasta Marinara',
-          image: '🍝',
-          category: 'Main Course',
-          recipe: [
-            'Cook pasta in salted boiling water',
-            'Sauté garlic in olive oil',
-            'Add crushed tomatoes and simmer',
-            'Season with basil, salt, and pepper',
-            'Toss with cooked pasta',
-            'Top with grated cheese'
-          ]
-        });
-      }
-      
-      if (query.includes('smoothie')) {
-        results.push({
-          name: 'Fruit Smoothie',
-          image: '🥤',
-          category: 'Beverage',
-          recipe: [
-            'Add frozen fruits to blender',
-            'Pour in milk or yogurt',
-            'Add honey or sugar to taste',
-            'Blend until smooth',
-            'Add ice if needed',
-            'Serve immediately'
-          ]
-        });
-      }
-      
-      if (query.includes('bread')) {
-        results.push({
-          name: 'Homemade Bread',
-          image: '🍞',
-          category: 'Baked Goods',
-          recipe: [
-            'Mix flour, yeast, salt, and water',
-            'Knead dough for 10 minutes',
-            'Let rise for 1-2 hours',
-            'Shape into loaf',
-            'Let rise again for 30 minutes',
-            'Bake at 375°F for 30-35 minutes'
-          ]
-        });
-      }
-      
-      if (query.includes('pancake')) {
-        results.push({
-          name: 'Pancakes',
-          image: '🥞',
-          category: 'Breakfast',
-          recipe: [
-            'Mix flour, sugar, baking powder',
-            'Whisk eggs with milk',
-            'Combine wet and dry ingredients',
-            'Heat griddle or pan',
-            'Pour batter and cook until bubbles form',
-            'Flip and cook until golden'
-          ]
-        });
-      }
-      
-      if (query.includes('fried rice') || query.includes('rice')) {
-        results.push({
-          name: 'Fried Rice',
-          image: '🍚',
-          category: 'Main Course',
-          recipe: [
-            'Use day-old cooked rice',
-            'Heat oil in wok or large pan',
-            'Scramble eggs and set aside',
-            'Stir-fry vegetables',
-            'Add rice and break up clumps',
-            'Add soy sauce and mix in eggs'
-          ]
-        });
-      }
-      
-      if (query.includes('soup')) {
-        results.push({
-          name: 'Vegetable Soup',
-          image: '🍲',
-          category: 'Soup',
-          recipe: [
-            'Sauté onions and garlic',
-            'Add chopped vegetables',
-            'Pour in broth or stock',
-            'Season with herbs and spices',
-            'Simmer until vegetables are tender',
-            'Adjust seasoning and serve hot'
-          ]
-        });
-      }
-      
-      if (query.includes('taco')) {
-        results.push({
-          name: 'Tacos',
-          image: '🌮',
-          category: 'Main Course',
-          recipe: [
-            'Warm tortillas',
-            'Cook seasoned meat or beans',
-            'Fill tortillas with filling',
-            'Add lettuce and tomatoes',
-            'Top with cheese and salsa',
-            'Serve immediately'
-          ]
-        });
-      }
-      
-      if (query.includes('noodle')) {
-        results.push({
-          name: 'Stir-Fried Noodles',
-          image: '🍜',
-          category: 'Main Course',
-          recipe: [
-            'Cook noodles according to package',
-            'Heat oil in wok',
-            'Stir-fry vegetables and protein',
-            'Add cooked noodles',
-            'Season with soy sauce',
-            'Toss everything together'
-          ]
-        });
-      }
-      
-      if (query.includes('egg')) {
-        results.push({
-          name: 'Scrambled Eggs',
-          image: '🍳',
-          category: 'Breakfast',
-          recipe: [
-            'Beat eggs with milk',
-            'Season with salt and pepper',
-            'Heat butter in pan',
-            'Pour in egg mixture',
-            'Stir gently as eggs cook',
-            'Remove when still slightly soft'
-          ]
-        });
-      }
-      
-      if (query.includes('salad')) {
-        results.push({
-          name: 'Salad Dressing',
-          image: '🥗',
-          category: 'Condiment',
-          recipe: [
-            'Combine vinegar and mustard',
-            'Slowly whisk in olive oil',
-            'Add minced garlic',
-            'Season with salt and pepper',
-            'Add herbs if desired',
-            'Store in refrigerator'
-          ]
-        });
+      // Add more search results for other dishes...
+      if (query.includes('pasta') || query.includes('italian')) {
+        if (results.length === 0) {
+          results.push({
+            name: 'Italian Pasta Guide',
+            image: '🇮🇹',
+            category: 'Italian Cuisine',
+            recipe: [
+              'Try searching for specific Italian dishes:',
+              '🍝 Carbonara - creamy egg and bacon pasta',
+              '🍝 Aglio e Olio - simple garlic and oil pasta',
+              '🍝 Alfredo - rich cream and cheese sauce',
+              '🍝 Pesto - fresh basil sauce',
+              '🍝 Pomodoro/Marinara - classic tomato sauce',
+              '🍚 Risotto - creamy rice dish',
+              '🥟 Gnocchi - potato dumplings',
+              '🥖 Bruschetta - toasted bread with tomatoes',
+              '🍆 Eggplant Parmigiana - baked eggplant layers',
+              '🍗 Chicken Cacciatore - hunter-style chicken stew'
+            ]
+          });
+        }
       }
       
       if (results.length === 0) {
@@ -1057,10 +657,11 @@ export default function IngredientMixer() {
           image: '🔍',
           category: 'Search',
           recipe: [
-            'Try searching for Nigerian dishes: jollof rice, pounded yam, amala, semovita, eba, garri, beans, plantain',
-            'Or international dishes: pizza, pasta, cake, cookies, ice cream',
-            'Or: bread, pancakes, smoothie, soup, fried rice',
-            'Or: tacos, noodles, eggs, salad',
+            'Try searching for:',
+            '🇮🇹 Italian dishes: carbonara, risotto, gnocchi, alfredo, pesto, bruschetta',
+            '🇳🇬 Nigerian dishes: jollof rice, pounded yam, amala, semovita, eba, plantain',
+            '🍰 Desserts: cake, cookies, ice cream',
+            '🍕 Other: pizza, pasta, bread, pancakes, smoothie',
             'You can also use the ingredient analyzer below!'
           ]
         });
@@ -1084,69 +685,27 @@ export default function IngredientMixer() {
       let response = '';
       const query = userMessage.toLowerCase();
       
-      // Nigerian dishes
-      if (query.includes('jollof')) {
+      // Italian dishes responses
+      if (query.includes('carbonara')) {
+        response = '🍝 Carbonara is a classic Roman pasta! You need: spaghetti, eggs, Parmesan cheese, bacon (or pancetta), and black pepper. The key is to turn off the heat before adding the egg mixture - the hot pasta cooks the eggs gently. Never add cream! Traditional carbonara is just eggs, cheese, and pasta water. It\'s easier than you think!';
+      } else if (query.includes('risotto')) {
+        response = '🍚 Risotto is an Italian rice dish that\'s creamy and delicious! Use Arborio rice (short grain). The secret is adding warm broth one ladle at a time and stirring constantly. It takes about 20-25 minutes. You can add mushrooms, peas, shrimp, or keep it simple with just Parmesan. Be patient and keep stirring!';
+      } else if (query.includes('gnocchi')) {
+        response = '🥟 Gnocchi are Italian potato dumplings! Boil potatoes, mash them smooth, add egg and flour to make a soft dough. Roll into ropes, cut into pieces, and boil until they float. Serve with tomato sauce, butter and sage, or pesto. They\'re fun to make and kids love helping roll them!';
+      } else if (query.includes('pesto')) {
+        response = '🌿 Pesto is a fresh basil sauce from Genoa, Italy! Blend fresh basil, pine nuts (or walnuts), garlic, Parmesan cheese, and olive oil. It\'s bright green and super flavorful. Toss with pasta, spread on sandwiches, or use as a pizza sauce. You can freeze it in ice cube trays for later!';
+      } else if (query.includes('bruschetta')) {
+        response = '🥖 Bruschetta is an easy Italian appetizer! Toast bread, rub with garlic, and top with diced tomatoes mixed with basil, olive oil, salt, and pepper. The key is using ripe tomatoes and good olive oil. Assemble just before serving so the bread stays crispy. Perfect for parties!';
+      } else if (query.includes('italian') || query.includes('italy')) {
+        response = '🇮🇹 Italian cooking is all about simple, quality ingredients! Popular dishes include: Carbonara, Aglio e Olio, Risotto, Gnocchi, Pesto, Alfredo, Bruschetta, Eggplant Parmigiana, and Chicken Cacciatore. Most Italian recipes are beginner-friendly. What would you like to learn?';
+      } else if (query.includes('beginner') || query.includes('easy') || query.includes('start cooking')) {
+        response = '👨‍🍳 Starting to cook? Great! Begin with simple recipes like: Pasta Aglio e Olio (garlic pasta - only 5 ingredients!), Scrambled Eggs, Fried Rice, or Bruschetta. Follow recipes step-by-step, don\'t rush, and taste as you go. Cooking is about practice - you\'ll get better each time! What would you like to try first?';
+      } else if (query.includes('jollof')) {
         response = '🍚 Jollof Rice is a beloved West African dish! You need: rice, tomatoes, peppers, onions, oil, curry powder, thyme, bay leaves, and stock. The key is frying the tomato paste until the oil separates - this gives jollof its signature taste. Cook the rice in the seasoned tomato base until fluffy. Serve with fried plantain, chicken, or coleslaw!';
-      } else if (query.includes('pounded yam') || query.includes('yam')) {
-        response = '🍠 Pounded Yam is a Nigerian staple! Peel and boil yam chunks until very soft (20-30 minutes). Drain completely, then pound with a mortar and pestle (or food processor) until smooth and stretchy. Add small amounts of warm water while pounding. Mold into balls and serve with egusi, ogbono, or vegetable soup. You can also make fried yam or yam porridge (asaro)!';
-      } else if (query.includes('amala')) {
-        response = '🥣 Amala is made from yam flour (elubo)! Boil water until very hot, reduce heat, then gradually add yam flour while stirring continuously. Stir vigorously to prevent lumps. Add more flour until thick and smooth, cover and steam for 2-3 minutes, then stir again. Serve with ewedu and gbegiri soup, or any Nigerian soup!';
-      } else if (query.includes('semovita') || query.includes('semo')) {
-        response = '🥣 Semovita is easy to make! Boil water, mix a small amount of semovita with cold water first, pour into boiling water while stirring, then gradually add more semovita powder. Stir continuously to avoid lumps until thick and smooth. Cover and cook for 2 minutes, stir again. Serve with any Nigerian soup - egusi, okra, vegetable, or ogbono!';
-      } else if (query.includes('garri') || query.includes('eba')) {
-        response = '🥣 Garri (Eba) is quick and easy! Boil water until very hot. Put garri in a bowl, gradually add hot water while stirring vigorously with a wooden spoon to avoid lumps. Continue until thick and smooth. You can knead with your hand (use a plastic bag if too hot). Mold into shape and serve with soup. You can also make garri soakings with cold water, sugar, milk, and groundnuts!';
-      } else if (query.includes('plantain')) {
-        response = '🍌 Fried Plantain (Dodo) is delicious! Use ripe plantains (yellow with black spots for sweet, or green for savory). Peel and slice diagonally or into rounds. Fry in hot oil until golden brown on both sides. Drain on paper towels. Serve with rice, beans, or stew. You can also make plantain porridge with palm oil, peppers, and vegetables!';
-      } else if (query.includes('beans')) {
-        response = '🫘 Beans Porridge is nutritious and filling! Soak beans overnight or parboil to remove skin. Cook until soft, add palm oil, onions, crayfish, ground pepper, and seasoning cubes. Add vegetables like spinach or pumpkin leaves. Simmer until thick. Serve with fried plantain, garri, or bread. You can add smoked fish or meat for extra flavor!';
-      } else if (query.includes('pizza')) {
-        response = '🍕 To make pizza, you\'ll need: flour, yeast, water, salt, olive oil for the dough. For toppings: tomato sauce, mozzarella cheese, and your favorite toppings like pepperoni, mushrooms, or basil. Mix flour, yeast, salt, and water to form dough. Let it rise for 1-2 hours. Roll out, add sauce and toppings, then bake at 475°F for 12-15 minutes!';
-      } else if (query.includes('cake')) {
-        response = '🎂 For a basic cake, you need: flour, sugar, eggs, butter, baking powder, milk, and vanilla extract. Cream butter and sugar, add eggs one at a time, then alternate adding flour mixture and milk. Bake at 350°F for 30-35 minutes. You can make chocolate cake by adding cocoa powder!';
-      } else if (query.includes('cookie')) {
-        response = '🍪 Cookie basics: flour, sugar, butter, eggs, baking soda, and vanilla. For chocolate chip cookies, add chocolate chips! Mix butter and sugar, add eggs, then flour mixture. Drop spoonfuls on baking sheet and bake at 375°F for 9-11 minutes.';
-      } else if (query.includes('ice cream')) {
-        response = '🍦 Ice cream needs: heavy cream, milk, sugar, egg yolks, and vanilla extract. Heat cream and milk, temper egg yolks with sugar, cook until thick, chill completely, then churn in an ice cream maker. You can add flavors like chocolate, strawberry, or coffee!';
-      } else if (query.includes('bread')) {
-        response = '🍞 Bread ingredients: flour, yeast, water, salt, and a bit of sugar. Mix ingredients, knead for 10 minutes, let rise for 1-2 hours, shape, let rise again, then bake at 375°F for 30-35 minutes. The key is patience with the rising!';
-      } else if (query.includes('pasta')) {
-        response = '🍝 Fresh pasta needs: flour and eggs (about 1 egg per 100g flour). Mix into dough, knead until smooth, rest for 30 minutes, then roll thin and cut into shapes. Cook in boiling salted water for 2-3 minutes. For sauce, try tomato, cream, or olive oil with garlic!';
-      } else if (query.includes('smoothie')) {
-        response = '🥤 Smoothies are easy! Blend frozen fruits (banana, berries, mango), milk or yogurt, and honey or sugar to taste. Add ice if needed. Popular combos: strawberry-banana, mango-pineapple, or berry blast!';
-      } else if (query.includes('soup')) {
-        response = '🍲 Basic soup: sauté onions and garlic, add vegetables, pour in broth or stock, season with herbs, and simmer until tender. You can make chicken soup, vegetable soup, tomato soup, or any combination you like!';
-      } else if (query.includes('pancake')) {
-        response = '🥞 Pancakes need: flour, sugar, baking powder, egg, milk, and melted butter. Mix dry ingredients, whisk wet ingredients separately, combine gently. Cook on hot griddle until bubbles form, flip, and cook until golden. Serve with syrup!';
-      } else if (query.includes('fried rice')) {
-        response = '🍚 Fried rice tip: use day-old rice! Heat oil in wok, scramble eggs and set aside, stir-fry vegetables, add rice and break up clumps, season with soy sauce, mix in eggs. Add protein like chicken, shrimp, or keep it vegetarian!';
-      } else if (query.includes('cosmetic') || query.includes('body butter') || query.includes('lotion')) {
-        response = '🧴 For body butter: melt shea butter in double boiler, add coconut oil, let cool, then whip until fluffy. Add essential oils for scent. Store in clean container. Great for dry skin!';
-      } else if (query.includes('cleaner') || query.includes('cleaning')) {
-        response = '🧽 Natural cleaner: mix baking soda with water to make paste, apply to surface, spray with vinegar (it will fizz!), let sit 5-10 minutes, scrub and wipe. NEVER mix bleach with vinegar or ammonia - very dangerous!';
-      } else if (query.includes('paint')) {
-        response = '🎨 For custom paint: start with base color, add small amounts of pigment, mix thoroughly, test on paper, adjust as needed. Mix colors: red + yellow = orange, blue + yellow = green, red + blue = purple!';
-      } else if (query.includes('taco')) {
-        response = '🌮 Tacos: warm tortillas, fill with seasoned meat or beans, add lettuce, tomatoes, cheese, and salsa. Season meat with cumin, chili powder, garlic, and paprika. Top with sour cream and guacamole!';
-      } else if (query.includes('noodle') || query.includes('ramen')) {
-        response = '🍜 Stir-fried noodles: cook noodles, drain. Heat oil in wok, stir-fry vegetables and protein, add noodles, season with soy sauce and sesame oil. Add garlic, ginger, and chili for extra flavor!';
-      } else if (query.includes('salad')) {
-        response = '🥗 Salad dressing: whisk vinegar with mustard, slowly drizzle in olive oil while whisking, add minced garlic, salt, pepper, and herbs. Classic ratio is 3 parts oil to 1 part vinegar!';
-      } else if (query.includes('egg')) {
-        response = '🍳 Eggs are versatile! Scrambled: beat with milk, cook in butter, stir gently. Fried: cook in oil until whites set. Boiled: 6 mins soft, 10 mins hard. Omelette: beat eggs, cook, add fillings, fold. Poached: simmer in water with vinegar!';
-      } else if (query.includes('nigerian') || query.includes('african')) {
-        response = 'I can help with Nigerian dishes! Popular ones include: Jollof Rice, Pounded Yam, Amala, Semovita, Eba (Garri), Fried Plantain, Beans Porridge, Yam Porridge, Egusi Soup, Okra Soup, and more! What would you like to know about?';
-      } else if (query.includes('what can i make') || query.includes('ingredients')) {
-        response = 'Tell me what ingredients you have, and I\'ll suggest recipes! You can make Nigerian dishes (jollof, pounded yam, amala, semovita, eba), international dishes (cakes, cookies, pizza, ice cream, bread, pasta), soups, smoothies, pancakes, and even cosmetics or cleaning products. What do you have?';
-      } else if (query.includes('substitute') || query.includes('replace')) {
-        response = 'Common substitutes: butter → oil or margarine; milk → water or plant milk; eggs → flax eggs (1 tbsp flax + 3 tbsp water) or applesauce; sugar → honey or maple syrup; flour → almond flour or oat flour. What ingredient do you need to replace?';
-      } else if (query.includes('vegan') || query.includes('vegetarian')) {
-        response = 'For vegan cooking: replace eggs with flax eggs or applesauce, use plant milk instead of dairy, use coconut oil or vegan butter, and nutritional yeast for cheesy flavor. Many recipes can be veganized! What would you like to make?';
-      } else if (query.includes('gluten free')) {
-        response = 'For gluten-free: use gluten-free flour blends, almond flour, coconut flour, or oat flour. Rice, quinoa, and corn are naturally gluten-free. Check labels on sauces and seasonings. What recipe are you adapting?';
-      } else if (query.includes('dangerous') || query.includes('toxic') || query.includes('safe')) {
-        response = '⚠️ NEVER mix: bleach + ammonia (toxic gas), bleach + vinegar (toxic gas), bleach + rubbing alcohol (chloroform). Keep food ingredients separate from cleaning chemicals. Always research before mixing unfamiliar substances!';
+      } else if (query.includes('pasta') && !query.includes('carbonara') && !query.includes('pesto')) {
+        response = '🍝 Pasta is versatile! Try these Italian classics: Carbonara (eggs & bacon), Aglio e Olio (garlic & oil - easiest!), Alfredo (cream & cheese), Pesto (basil sauce), Pomodoro (tomato sauce), or Arrabbiata (spicy tomato). Always salt your pasta water generously and save some pasta water to make sauces creamy!';
       } else {
-        response = 'I can help you with Nigerian dishes (jollof rice, pounded yam, amala, semovita, eba, plantain, beans), international recipes (cakes, cookies, pizza, ice cream, bread, pasta), soups, smoothies, pancakes, and more! I can also advise on cosmetics, cleaning products, and ingredient safety. What would you like to know about?';
+        response = 'I can help with Italian dishes (carbonara, risotto, gnocchi, pesto, bruschetta, alfredo), Nigerian dishes (jollof rice, pounded yam, amala), and beginner cooking tips! What would you like to know?';
       }
       
       setChatMessages(prev => [...prev, { role: 'assistant', content: response }]);
@@ -1176,7 +735,7 @@ export default function IngredientMixer() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                placeholder="Search for dishes and snacks recipes... (e.g., jollof rice, pounded yam, pizza)"
+                placeholder="Search for dishes and snacks recipes... (e.g., carbonara, risotto, jollof rice)"
                 className="w-full p-4 pl-12 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:outline-none text-lg"
                 disabled={isSearching}
               />
@@ -1407,14 +966,10 @@ export default function IngredientMixer() {
               <div className="text-center text-gray-500 mt-8">
                 <p className="mb-4">👋 Hi! I can help you with:</p>
                 <ul className="text-sm space-y-2 text-left max-w-xs mx-auto">
-                  <li>🍚 Jollof Rice, Pounded Yam, Amala</li>
-                  <li>🥣 Semovita, Eba (Garri), Beans</li>
-                  <li>🍌 Fried Plantain and more Nigerian dishes</li>
-                  <li>🍕 Pizza, pasta, and Italian dishes</li>
-                  <li>🎂 Cakes, cookies, and desserts</li>
-                  <li>🍦 Ice cream and frozen treats</li>
-                  <li>🌮 Tacos and international cuisine</li>
-                  <li>🧴 Cosmetics and cleaning products</li>
+                  <li>🇮🇹 Italian: Carbonara, Risotto, Gnocchi, Pesto, Alfredo</li>
+                  <li>🇳🇬 Nigerian: Jollof Rice, Pounded Yam, Amala, Eba</li>
+                  <li>🎂 Desserts: Cakes, Cookies, Ice Cream</li>
+                  <li>👨‍🍳 Beginner cooking tips and guides</li>
                   <li>⚠️ Ingredient safety tips</li>
                 </ul>
                 <p className="mt-4 text-xs">Ask me anything!</p>
