@@ -949,7 +949,7 @@ export default function IngredientMixer() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50/40 via-blue-100/30 to-blue-50/40 p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
@@ -1263,6 +1263,7 @@ export default function IngredientMixer() {
     </div>
   );
 }
+
 
 
 
