@@ -355,7 +355,7 @@ export default function CookingAnalyzer() {
         <div className="bg-white rounded-3xl shadow-2xl p-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-800 mb-2">Ingredient Analyzer</h2>
-            <p className="text-gray-600">Tell us what ingredients you have, and we'll show you what to cook!</p>
+            <p className="text-gray-600">Tell us what ingredients you have, and we&apos;ll show you what to cook!</p>
           </div>
 
           {!result && (
@@ -393,7 +393,7 @@ export default function CookingAnalyzer() {
 
               {result.isSafe && result.products.length > 0 && (
                 <div>
-                  <h3 className="text-2xl font-bold text-green-800 mb-6">✅ Here's what you can make:</h3>
+                  <h3 className="text-2xl font-bold text-green-800 mb-6">✅ Here&apos;s what you can make:</h3>
                   <div className="space-y-6">
                     {result.products.map((product, idx) => (
                       <div key={idx} className="bg-gradient-to-br from-green-50 to-orange-50 rounded-2xl p-6 border-2 border-green-200">
@@ -509,4 +509,6 @@ export default function CookingAnalyzer() {
     </div>
   );
 }
+
+
 
