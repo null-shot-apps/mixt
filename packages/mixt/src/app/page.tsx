@@ -364,6 +364,13 @@ export default function CookingAnalyzer() {
   const handleSearch = () => {
     if (!searchQuery.trim()) return;
     
+    // Navigate to dedicated search results page
+    window.location.href = `/search?q=${encodeURIComponent(searchQuery.toLowerCase())}`;
+  };
+
+  const handleSearchOld = () => {
+    if (!searchQuery.trim()) return;
+    
     setIsSearching(true);
     
     setTimeout(() => {
@@ -930,6 +937,7 @@ export default function CookingAnalyzer() {
     </div>
   );
 }
+
 
 
 
