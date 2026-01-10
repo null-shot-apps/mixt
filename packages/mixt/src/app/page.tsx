@@ -49,16 +49,16 @@ export default function CookingAnalyzer() {
     {
       id: 0,
       icon: '🌍',
-      title: 'Food Search',
-      description: 'Discover authentic recipes from any country. Search by dish name and explore global cuisines.',
+      title: 'African & Global Search',
+      description: 'Discover authentic African dishes from all regions plus global cuisines. Fast, accurate results.',
       action: 'Search Recipes',
       gradient: 'from-blue-500 to-blue-600'
     },
     {
       id: 1,
       icon: '📸',
-      title: 'Image Search',
-      description: 'Take a photo of any dish and instantly identify it with AI-powered recognition.',
+      title: 'Image Recognition',
+      description: 'Upload any dish photo for instant identification with origin, ingredients, and cooking method.',
       action: 'Upload Photo',
       gradient: 'from-cyan-500 to-blue-500'
     },
@@ -66,7 +66,7 @@ export default function CookingAnalyzer() {
       id: 2,
       icon: '🥘',
       title: 'Ingredient Analyzer',
-      description: 'List what you have in your kitchen and get personalized recipe suggestions.',
+      description: 'List your ingredients and get African-style recipes with local spices and traditional techniques.',
       action: 'Analyze Ingredients',
       gradient: 'from-blue-600 to-indigo-600'
     }
@@ -121,84 +121,217 @@ export default function CookingAnalyzer() {
       const ingredientList = ingredients.toLowerCase();
       const products: Array<{name: string; image: string; recipe: string[]; category: string;}> = [];
       
-      // FRENCH DISHES
-      if (ingredientList.includes('bread') || ingredientList.includes('baguette')) {
+      // WEST AFRICAN DISHES
+      if (ingredientList.includes('rice') || ingredientList.includes('tomato')) {
         products.push({
-          name: 'French Onion Soup',
+          name: 'Jollof Rice',
+          image: '🍚',
+          category: 'West African (Nigeria/Ghana)',
+          recipe: [
+            '⚡ QUICK TIP: The king of West African rice! One-pot wonder.',
+            '🌍 ORIGIN: Nigeria, Ghana, Senegal',
+            '1️⃣ Blend 4 tomatoes, 2 bell peppers, 1 onion, 2 scotch bonnets',
+            '2️⃣ Heat oil, fry tomato paste for 5 minutes',
+            '3️⃣ Add blended mix, cook 15 minutes until thick',
+            '4️⃣ Add curry, thyme, bay leaves, stock cubes',
+            '5️⃣ Pour 3 cups stock, bring to boil',
+            '6️⃣ Add 2 cups parboiled rice, stir once',
+            '7️⃣ Cover tight, cook on low 30 minutes',
+            '8️⃣ Don\'t stir! Let it steam',
+            '🎯 Serve with fried plantain and chicken!'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('beans') || ingredientList.includes('plantain')) {
+        products.push({
+          name: 'Waakye',
+          image: '🫘',
+          category: 'West African (Ghana)',
+          recipe: [
+            '⚡ QUICK TIP: Ghanaian rice and beans with sorghum leaves!',
+            '🌍 ORIGIN: Ghana',
+            '1️⃣ Soak 2 cups black-eyed peas overnight',
+            '2️⃣ Boil peas with dried sorghum leaves (or baking soda)',
+            '3️⃣ Add 2 cups rice after 20 minutes',
+            '4️⃣ Cook until tender (30 minutes)',
+            '5️⃣ Season with salt',
+            '6️⃣ Serve with shito (pepper sauce)',
+            '7️⃣ Add fried fish or boiled eggs',
+            '8️⃣ Top with gari (cassava flakes)',
+            '🎯 Traditional breakfast or lunch!'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('chicken') || ingredientList.includes('peanut')) {
+        products.push({
+          name: 'Groundnut Soup',
+          image: '🥜',
+          category: 'West African (Ghana/Nigeria)',
+          recipe: [
+            '⚡ QUICK TIP: Creamy peanut soup - rich and satisfying!',
+            '🌍 ORIGIN: Ghana, Nigeria',
+            '1️⃣ Season chicken with salt, ginger, garlic',
+            '2️⃣ Boil chicken in 6 cups water (30 min)',
+            '3️⃣ Blend 1 cup roasted peanuts smooth',
+            '4️⃣ Add peanut butter to chicken stock',
+            '5️⃣ Add tomato paste, onions, peppers',
+            '6️⃣ Simmer 20 minutes, stir constantly',
+            '7️⃣ Add vegetables (eggplant, okra)',
+            '8️⃣ Cook until thick and creamy',
+            '🎯 Serve with fufu, banku, or rice!'
+          ]
+        });
+      }
+      
+      // EAST AFRICAN DISHES
+      if (ingredientList.includes('lentils') || ingredientList.includes('onion')) {
+        products.push({
+          name: 'Misir Wot',
+          image: '🫘',
+          category: 'East African (Ethiopia)',
+          recipe: [
+            '⚡ QUICK TIP: Spicy Ethiopian red lentil stew!',
+            '🌍 ORIGIN: Ethiopia',
+            '1️⃣ Soak 2 cups red lentils 30 minutes',
+            '2️⃣ Sauté 2 chopped onions until golden',
+            '3️⃣ Add 2 tbsp berbere spice, 1 tbsp paprika',
+            '4️⃣ Add tomato paste, cook 5 minutes',
+            '5️⃣ Add lentils and 4 cups water',
+            '6️⃣ Simmer 30 minutes until thick',
+            '7️⃣ Add garlic, ginger paste',
+            '8️⃣ Season with salt',
+            '🎯 Serve with injera (sour flatbread)!'
+          ]
+        });
+      }
+      
+      if (ingredientList.includes('beef') || ingredientList.includes('meat')) {
+        products.push({
+          name: 'Nyama Choma',
+          image: '🍖',
+          category: 'East African (Kenya)',
+          recipe: [
+            '⚡ QUICK TIP: Kenyan grilled meat - simple and delicious!',
+            '🌍 ORIGIN: Kenya, Tanzania',
+            '1️⃣ Cut beef/goat into large chunks',
+            '2️⃣ Season with salt, pepper, garlic',
+            '3️⃣ Marinate 2 hours (optional)',
+            '4️⃣ Grill over charcoal or high heat',
+            '5️⃣ Turn every 5 minutes',
+            '6️⃣ Cook 20-30 minutes until charred',
+            '7️⃣ Slice into bite-size pieces',
+            '8️⃣ Serve with kachumbari (tomato salad)',
+            '🎯 Eat with ugali and sukuma wiki!'
+          ]
+        });
+      }
+      
+      // NORTH AFRICAN DISHES
+      if (ingredientList.includes('couscous') || ingredientList.includes('vegetables')) {
+        products.push({
+          name: 'Couscous',
           image: '🍲',
-          category: 'French Appetizer',
+          category: 'North African (Morocco)',
           recipe: [
-            '🔰 BEGINNER TIP: Classic French comfort food! The secret is caramelizing the onions slowly.',
-            '1️⃣ Slice 4 large onions thinly',
-            '2️⃣ Melt 4 tablespoons butter in a large pot',
-            '3️⃣ Add onions and cook slowly for 30-40 minutes',
-            '4️⃣ Add 2 minced garlic cloves',
-            '5️⃣ Pour in 6 cups beef broth',
-            '6️⃣ Simmer for 30 minutes',
-            '7️⃣ Toast baguette slices with Gruyère cheese',
-            '8️⃣ Ladle soup into bowls, float bread on top',
-            '🎯 Serve hot with extra crusty bread!'
+            '⚡ QUICK TIP: Moroccan steamed semolina with vegetables!',
+            '🌍 ORIGIN: Morocco, Algeria, Tunisia',
+            '1️⃣ Boil 2 cups water with salt and butter',
+            '2️⃣ Pour over 2 cups couscous, cover 5 min',
+            '3️⃣ Fluff with fork',
+            '4️⃣ Sauté onions, carrots, zucchini, chickpeas',
+            '5️⃣ Add cumin, coriander, turmeric',
+            '6️⃣ Add tomatoes and stock, simmer 20 min',
+            '7️⃣ Serve vegetables over couscous',
+            '8️⃣ Top with raisins and almonds',
+            '🎯 Add harissa for spice!'
           ]
         });
       }
       
-      if (ingredientList.includes('egg') || ingredientList.includes('eggs')) {
+      if (ingredientList.includes('lamb') || ingredientList.includes('apricot')) {
         products.push({
-          name: 'Quiche Lorraine',
-          image: '🥧',
-          category: 'French Main Course',
+          name: 'Tagine',
+          image: '🍯',
+          category: 'North African (Morocco)',
           recipe: [
-            '🔰 BEGINNER TIP: Classic French egg tart! Perfect for brunch or dinner.',
-            '1️⃣ Preheat oven to 375°F (190°C)',
-            '2️⃣ Use store-bought pie crust',
-            '3️⃣ Cook 6 strips of bacon until crispy',
-            '4️⃣ Whisk 4 eggs with 1.5 cups heavy cream',
-            '5️⃣ Add salt, pepper, and nutmeg',
-            '6️⃣ Sprinkle bacon and cheese in crust',
-            '7️⃣ Pour egg mixture over',
-            '8️⃣ Bake for 35-40 minutes',
-            '🎯 Serve warm with salad!'
+            '⚡ QUICK TIP: Slow-cooked Moroccan stew - sweet and savory!',
+            '🌍 ORIGIN: Morocco',
+            '1️⃣ Brown 1 lb lamb in olive oil',
+            '2️⃣ Add onions, garlic, ginger',
+            '3️⃣ Add cinnamon, cumin, saffron, paprika',
+            '4️⃣ Add tomatoes and stock',
+            '5️⃣ Add dried apricots, prunes, honey',
+            '6️⃣ Cover, simmer 1.5 hours',
+            '7️⃣ Add chickpeas last 15 minutes',
+            '8️⃣ Garnish with almonds and cilantro',
+            '🎯 Serve with couscous or bread!'
           ]
         });
       }
       
-      // SPANISH DISHES
-      if (ingredientList.includes('rice') || ingredientList.includes('seafood')) {
+      // SOUTHERN AFRICAN DISHES
+      if (ingredientList.includes('corn') || ingredientList.includes('maize')) {
         products.push({
-          name: 'Paella',
-          image: '🥘',
-          category: 'Spanish Main Course',
+          name: 'Pap (Sadza/Ugali)',
+          image: '🌽',
+          category: 'Southern African (South Africa/Zimbabwe)',
           recipe: [
-            '🔰 BEGINNER TIP: Spain\'s famous rice dish!',
-            '1️⃣ Heat olive oil in a large pan',
-            '2️⃣ Cook chicken pieces until golden',
-            '3️⃣ Add onion and bell pepper',
-            '4️⃣ Add garlic and rice',
-            '5️⃣ Stir in smoked paprika and saffron',
-            '6️⃣ Pour in chicken broth',
-            '7️⃣ Simmer 20 minutes',
-            '8️⃣ Add shrimp and mussels on top',
-            '🎯 Garnish with lemon wedges!'
+            '⚡ QUICK TIP: Staple cornmeal porridge - easy and filling!',
+            '🌍 ORIGIN: South Africa, Zimbabwe, Zambia',
+            '1️⃣ Boil 4 cups water with salt',
+            '2️⃣ Slowly add 2 cups maize meal',
+            '3️⃣ Stir constantly to avoid lumps',
+            '4️⃣ Cook 10 minutes on low heat',
+            '5️⃣ Add more maize meal for thickness',
+            '6️⃣ Stir vigorously until smooth',
+            '7️⃣ Cover, steam 5 minutes',
+            '8️⃣ Shape into balls or serve soft',
+            '🎯 Serve with stew, meat, or vegetables!'
           ]
         });
       }
       
-      // AMERICAN DISHES
-      if (ingredientList.includes('beef') || ingredientList.includes('burger')) {
+      if (ingredientList.includes('cabbage') || ingredientList.includes('greens')) {
         products.push({
-          name: 'Classic American Burger',
-          image: '🍔',
-          category: 'American Main Course',
+          name: 'Chakalaka',
+          image: '🥗',
+          category: 'Southern African (South Africa)',
           recipe: [
-            '🔰 BEGINNER TIP: The all-American classic!',
-            '1️⃣ Form ground beef into 4 patties',
-            '2️⃣ Season with salt and pepper',
-            '3️⃣ Heat pan to medium-high',
-            '4️⃣ Cook 4 minutes per side',
-            '5️⃣ Add cheese in last minute',
-            '6️⃣ Toast burger buns',
-            '7️⃣ Assemble with toppings',
-            '🎯 Serve with fries!'
+            '⚡ QUICK TIP: Spicy South African vegetable relish!',
+            '🌍 ORIGIN: South Africa',
+            '1️⃣ Heat oil, sauté onions and garlic',
+            '2️⃣ Add grated carrots and peppers',
+            '3️⃣ Add curry powder, paprika, chili',
+            '4️⃣ Add shredded cabbage',
+            '5️⃣ Add canned baked beans and tomatoes',
+            '6️⃣ Simmer 20 minutes',
+            '7️⃣ Season with salt and pepper',
+            '8️⃣ Add vinegar for tang',
+            '🎯 Serve with pap, bread, or braai!'
+          ]
+        });
+      }
+      
+      // CENTRAL AFRICAN DISHES
+      if (ingredientList.includes('cassava') || ingredientList.includes('fish')) {
+        products.push({
+          name: 'Poulet Moambé',
+          image: '🍗',
+          category: 'Central African (Congo/Gabon)',
+          recipe: [
+            '⚡ QUICK TIP: Rich chicken in palm butter sauce!',
+            '🌍 ORIGIN: Congo, Gabon, Angola',
+            '1️⃣ Season chicken with salt, pepper, garlic',
+            '2️⃣ Brown chicken in oil',
+            '3️⃣ Remove chicken, sauté onions',
+            '4️⃣ Add tomato paste and palm butter',
+            '5️⃣ Add chicken stock, bring to boil',
+            '6️⃣ Return chicken, add scotch bonnet',
+            '7️⃣ Simmer 40 minutes',
+            '8️⃣ Add spinach or cassava leaves',
+            '🎯 Serve with fufu or rice!'
           ]
         });
       }
@@ -237,37 +370,134 @@ export default function CookingAnalyzer() {
       const query = searchQuery.toLowerCase();
       const results: Array<{name: string; image: string; recipe: string[]; category: string;}> = [];
       
-      if (query.includes('paella')) {
+      // AFRICAN DISHES
+      if (query.includes('jollof')) {
         results.push({
-          name: 'Paella',
-          image: '🥘',
-          category: 'Spanish Main Course',
+          name: 'Jollof Rice',
+          image: '🍚',
+          category: 'West African (Nigeria/Ghana)',
           recipe: [
-            '🔰 BEGINNER TIP: Spain\'s famous rice dish!',
-            '1️⃣ Heat olive oil in large pan',
-            '2️⃣ Cook chicken until golden',
-            '3️⃣ Add onion and bell pepper',
-            '4️⃣ Add garlic and rice',
-            '5️⃣ Stir in paprika and saffron',
-            '6️⃣ Pour in chicken broth',
-            '7️⃣ Simmer 20 minutes',
-            '8️⃣ Add seafood on top',
-            '🎯 Garnish with lemon!'
+            '⚡ QUICK: One-pot West African rice dish',
+            '🌍 ORIGIN: Nigeria, Ghana, Senegal',
+            '1️⃣ Blend tomatoes, peppers, onions, scotch bonnets',
+            '2️⃣ Fry tomato paste 5 minutes',
+            '3️⃣ Add blended mix, cook 15 min until thick',
+            '4️⃣ Add curry, thyme, bay leaves, stock cubes',
+            '5️⃣ Pour stock, bring to boil',
+            '6️⃣ Add parboiled rice, stir once',
+            '7️⃣ Cover tight, cook low 30 minutes',
+            '🎯 Serve with plantain and chicken!'
+          ]
+        });
+      }
+      
+      if (query.includes('suya') || query.includes('kebab')) {
+        results.push({
+          name: 'Suya',
+          image: '�串',
+          category: 'West African (Nigeria)',
+          recipe: [
+            '⚡ QUICK: Nigerian spicy grilled meat skewers',
+            '🌍 ORIGIN: Nigeria (Hausa)',
+            '1️⃣ Slice beef into thin strips',
+            '2️⃣ Mix ground peanuts, cayenne, ginger, garlic powder',
+            '3️⃣ Add bouillon cube, paprika',
+            '4️⃣ Coat meat in spice mix',
+            '5️⃣ Thread onto skewers',
+            '6️⃣ Grill over charcoal 10-15 minutes',
+            '7️⃣ Turn frequently',
+            '🎯 Serve with onions, tomatoes, cabbage!'
+          ]
+        });
+      }
+      
+      if (query.includes('injera') || query.includes('ethiopian')) {
+        results.push({
+          name: 'Injera with Misir Wot',
+          image: '🫓',
+          category: 'East African (Ethiopia)',
+          recipe: [
+            '⚡ QUICK: Sour flatbread with spicy lentils',
+            '🌍 ORIGIN: Ethiopia, Eritrea',
+            'INJERA: Mix teff flour, water, ferment 3 days',
+            'WOT: Sauté onions, add berbere spice',
+            'Add red lentils, water, simmer 30 min',
+            'Pour injera batter on hot pan',
+            'Cook until bubbles form, don\'t flip',
+            '🎯 Serve lentils on injera!'
+          ]
+        });
+      }
+      
+      if (query.includes('tagine') || query.includes('moroccan')) {
+        results.push({
+          name: 'Lamb Tagine',
+          image: '🍯',
+          category: 'North African (Morocco)',
+          recipe: [
+            '⚡ QUICK: Slow-cooked Moroccan stew',
+            '🌍 ORIGIN: Morocco',
+            '1️⃣ Brown lamb in olive oil',
+            '2️⃣ Add onions, garlic, ginger',
+            '3️⃣ Add cinnamon, cumin, saffron',
+            '4️⃣ Add tomatoes, stock, dried fruits',
+            '5️⃣ Simmer 1.5 hours',
+            '6️⃣ Add chickpeas last 15 min',
+            '🎯 Serve with couscous!'
+          ]
+        });
+      }
+      
+      if (query.includes('pap') || query.includes('ugali') || query.includes('sadza')) {
+        results.push({
+          name: 'Pap/Ugali/Sadza',
+          image: '🌽',
+          category: 'Southern African',
+          recipe: [
+            '⚡ QUICK: Cornmeal staple - 15 minutes',
+            '🌍 ORIGIN: South Africa, Kenya, Zimbabwe',
+            '1️⃣ Boil 4 cups water with salt',
+            '2️⃣ Slowly add 2 cups maize meal',
+            '3️⃣ Stir constantly',
+            '4️⃣ Cook 10 minutes on low',
+            '5️⃣ Add more meal for thickness',
+            '6️⃣ Stir until smooth',
+            '🎯 Serve with stew or vegetables!'
+          ]
+        });
+      }
+      
+      if (query.includes('fufu')) {
+        results.push({
+          name: 'Fufu',
+          image: '🥔',
+          category: 'West/Central African',
+          recipe: [
+            '⚡ QUICK: Pounded starchy staple',
+            '🌍 ORIGIN: Ghana, Nigeria, Cameroon',
+            '1️⃣ Boil cassava and plantain until soft',
+            '2️⃣ Drain and pound in mortar',
+            '3️⃣ Add water gradually',
+            '4️⃣ Pound until smooth and stretchy',
+            '5️⃣ Shape into balls',
+            '🎯 Serve with soup or stew!'
           ]
         });
       }
       
       if (results.length === 0) {
         results.push({
-          name: 'No Results Found',
+          name: 'Search Tips',
           image: '🔍',
-          category: 'Search',
+          category: 'Help',
           recipe: [
-            'Try searching for:',
-            '🇫🇷 French: onion soup, quiche, coq au vin',
-            '🇪🇸 Spanish: paella, patatas bravas, gazpacho',
-            '🇺🇸 American: burger, mac and cheese, BBQ ribs',
-            'Or use the ingredient analyzer below!'
+            '⚡ Try searching for:',
+            '🌍 West Africa: jollof, suya, fufu, egusi, waakye',
+            '🌍 East Africa: injera, nyama choma, ugali, pilau',
+            '🌍 North Africa: tagine, couscous, harira, shakshuka',
+            '🌍 Southern Africa: pap, chakalaka, bobotie, biltong',
+            '🌍 Central Africa: poulet moambé, saka saka',
+            'Or list your ingredients below!'
           ]
         });
       }
@@ -286,11 +516,32 @@ export default function CookingAnalyzer() {
     setChatLoading(true);
     
     setTimeout(() => {
-      const response = 'I can help with French dishes (onion soup, quiche), Spanish dishes (paella, gazpacho), American dishes (burgers, mac and cheese), and beginner cooking tips! What would you like to know?';
+      const msg = userMessage.toLowerCase();
+      let response = '';
+      
+      if (msg.includes('jollof') || msg.includes('west africa')) {
+        response = '🍚 Jollof Rice is West Africa\'s signature dish! Key: blend tomatoes/peppers, fry tomato paste first, use parboiled rice, don\'t stir after adding rice. Cook covered 30 min. Nigerian vs Ghanaian style differs in spice level and smokiness.';
+      } else if (msg.includes('injera') || msg.includes('ethiopia')) {
+        response = '🫓 Injera is Ethiopian sourdough flatbread made from teff flour. Ferment 3 days for sour taste. Cook on hot pan until bubbles form. Serve with misir wot (lentils), doro wot (chicken), or kitfo (raw beef). Eat with hands!';
+      } else if (msg.includes('tagine') || msg.includes('morocco')) {
+        response = '🍯 Tagine is Moroccan slow-cooked stew. Use lamb/chicken, add sweet (apricots, prunes, honey) + savory (cumin, cinnamon, saffron). Cook 1.5 hours. Serve with couscous. Named after the clay pot used!';
+      } else if (msg.includes('suya') || msg.includes('nigeria')) {
+        response = '🍢 Suya is Nigerian spicy grilled meat! Mix ground peanuts + cayenne + ginger + bouillon. Coat thin beef strips, grill over charcoal 10-15 min. Serve with onions, tomatoes, cabbage. Street food favorite!';
+      } else if (msg.includes('fufu') || msg.includes('pounded')) {
+        response = '🥔 Fufu is pounded cassava/plantain staple. Boil until soft, pound in mortar with water until smooth and stretchy. Shape into balls. Eat with soup (egusi, groundnut, okra). Don\'t chew - swallow!';
+      } else if (msg.includes('pap') || msg.includes('ugali') || msg.includes('sadza')) {
+        response = '🌽 Pap/Ugali/Sadza is cornmeal porridge - same dish, different names! Boil water, add maize meal slowly while stirring. Cook 10 min until thick. Serve with stew, meat, or vegetables. Staple across Africa!';
+      } else if (msg.includes('berbere') || msg.includes('spice')) {
+        response = '🌶️ Berbere is Ethiopian spice blend: chili, fenugreek, coriander, cardamom, black pepper, cinnamon, cloves, ginger. Use in wot (stews). Substitute: cayenne + paprika + cumin + coriander + ginger.';
+      } else if (msg.includes('substitute') || msg.includes('replace')) {
+        response = '🔄 Common substitutes: Scotch bonnet → habanero/cayenne. Palm oil → red palm butter/vegetable oil + paprika. Cassava flour → potato starch. Plantain → banana (less starchy). Teff → whole wheat + buckwheat.';
+      } else {
+        response = '⚡ I specialize in African cuisines! Ask about:\n🌍 West: jollof, suya, fufu, egusi\n🌍 East: injera, nyama choma, pilau\n🌍 North: tagine, couscous, harira\n🌍 South: pap, chakalaka, bobotie\n🌍 Central: poulet moambé\n\nOr ask about ingredients, spices, substitutions!';
+      }
       
       setChatMessages(prev => [...prev, { role: 'assistant', content: response }]);
       setChatLoading(false);
-    }, 1000);
+    }, 800);
   };
 
   return (
@@ -302,10 +553,10 @@ export default function CookingAnalyzer() {
             <span className="text-7xl md:text-8xl">🍳</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-6 leading-tight">
-            Your Smart Cooking Assistant
+            Fast. Smart. African-First.
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto font-light">
-            Discover recipes, identify dishes, and cook with what you have—all powered by AI
+            Discover African cuisines and global recipes—identify dishes, cook with what you have
           </p>
         </div>
 
@@ -320,7 +571,7 @@ export default function CookingAnalyzer() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-                  placeholder="Search any dish from any country..."
+                  placeholder="Search African dishes, global recipes, or ingredients..."
                   className="w-full p-6 pl-16 border-2 border-transparent rounded-2xl focus:border-blue-400 focus:outline-none text-lg bg-gray-50 group-hover:bg-white transition-all"
                   disabled={isSearching}
                 />
@@ -339,9 +590,10 @@ export default function CookingAnalyzer() {
 
         {/* Swipeable Feature Cards */}
         <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">
-            Explore Features
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-2">
+            Three Ways to Cook
           </h2>
+          <p className="text-center text-gray-600 mb-8">Swipe to explore on mobile</p>
           
           {/* Desktop View - All Cards */}
           <div className="hidden md:grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -499,7 +751,7 @@ export default function CookingAnalyzer() {
                 Ingredient Analyzer
               </h2>
               <p className="text-gray-600 text-lg">
-                Tell us what you have, and we&apos;ll show you what to cook!
+                List your ingredients → Get African-style recipes with local spices!
               </p>
             </div>
 
@@ -513,7 +765,7 @@ export default function CookingAnalyzer() {
                     id="ingredient-input"
                     value={ingredients}
                     onChange={(e) => setIngredients(e.target.value)}
-                    placeholder="e.g., chicken, rice, tomatoes, onions, garlic..."
+                    placeholder="e.g., chicken, rice, tomatoes, peppers, onions, plantain..."
                     className="w-full p-6 border-2 border-gray-200 rounded-2xl focus:border-blue-400 focus:outline-none min-h-40 text-lg bg-gray-50 hover:bg-white transition-all"
                   />
                 </div>
@@ -522,7 +774,7 @@ export default function CookingAnalyzer() {
                   disabled={analyzing || !ingredients.trim()}
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-6 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] disabled:opacity-50 disabled:scale-100 transition-all duration-200"
                 >
-                  {analyzing ? '🔍 Analyzing...' : '✨ Get Cooking Instructions'}
+                  {analyzing ? '⚡ Analyzing...' : '⚡ Get Recipe Instantly'}
                 </button>
               </div>
             )}
@@ -574,7 +826,7 @@ export default function CookingAnalyzer() {
 
         {/* Footer */}
         <div className="text-center text-gray-500 pb-8">
-          <p className="text-sm font-medium">💡 Powered by AI • Cook with confidence • Discover new flavors</p>
+          <p className="text-sm font-medium">⚡ Fast • Accurate • African-First • Global Support</p>
         </div>
       </div>
 
@@ -593,28 +845,31 @@ export default function CookingAnalyzer() {
         <div className="fixed bottom-32 right-8 w-96 max-w-[calc(100vw-4rem)] bg-white rounded-3xl shadow-2xl z-50 flex flex-col max-h-[600px] animate-slideUp">
           <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 rounded-t-3xl">
             <h3 className="font-bold text-xl flex items-center gap-2">
-              <span className="text-2xl">🧑‍🍳</span>
-              Recipe Assistant
+              <span className="text-2xl">⚡</span>
+              African Cuisine Expert
             </h3>
-            <p className="text-sm opacity-90 mt-1">Ask me about any recipe!</p>
+            <p className="text-sm opacity-90 mt-1">Fast answers • All regions • Substitutions</p>
           </div>
 
           <div className="flex-1 overflow-y-auto p-6 space-y-4 min-h-[300px] max-h-[400px] bg-gradient-to-br from-blue-50 to-white">
             {chatMessages.length === 0 && (
               <div className="text-center text-gray-600 mt-8">
-                <p className="mb-6 font-medium">👋 Hi! I can help you with:</p>
+                <p className="mb-6 font-medium">⚡ Fast African cuisine expert!</p>
                 <div className="space-y-3 text-left max-w-xs mx-auto">
                   <div className="bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <span className="font-bold">🇫🇷</span> French cuisine
+                    <span className="font-bold">🌍</span> West African dishes
                   </div>
                   <div className="bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <span className="font-bold">🇪🇸</span> Spanish dishes
+                    <span className="font-bold">🌍</span> East African recipes
                   </div>
                   <div className="bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <span className="font-bold">🇺🇸</span> American classics
+                    <span className="font-bold">🌍</span> North African cuisine
                   </div>
                   <div className="bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <span className="font-bold">👨‍🍳</span> Cooking tips
+                    <span className="font-bold">🌍</span> Southern African food
+                  </div>
+                  <div className="bg-white p-3 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <span className="font-bold">🔄</span> Ingredient substitutes
                   </div>
                 </div>
               </div>
@@ -657,7 +912,7 @@ export default function CookingAnalyzer() {
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleChatSubmit()}
-                placeholder="Ask about recipes..."
+                placeholder="Ask about African dishes, spices, substitutes..."
                 className="flex-1 p-4 border-2 border-gray-200 rounded-2xl focus:border-blue-400 focus:outline-none bg-gray-50 hover:bg-white transition-all"
                 disabled={chatLoading}
               />
@@ -675,6 +930,20 @@ export default function CookingAnalyzer() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
