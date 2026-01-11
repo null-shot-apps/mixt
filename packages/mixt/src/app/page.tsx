@@ -781,7 +781,7 @@ export default function CookingAnalyzer() {
                   disabled={analyzing || !ingredients.trim()}
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-6 rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-[1.02] disabled:opacity-50 disabled:scale-100 transition-all duration-200"
                 >
-                  {analyzing ? '⚡ Analyzing...' : '⚡ Get Recipe Instantly'}
+                  {analyzing ? 'Analyzing...' : 'Get Recipe Instantly'}
                 </button>
               </div>
             )}
@@ -937,6 +937,7 @@ export default function CookingAnalyzer() {
     </div>
   );
 }
+
 
 
 
